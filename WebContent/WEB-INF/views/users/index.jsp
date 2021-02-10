@@ -12,20 +12,28 @@
             <tbody>
                 <tr>
                     <th>ユーザID</th>
-                    <th>氏名</th>
+                    <th>ユーザ名</th>
+                    <th>ユーザタイプ</th>
                     <th>操作</th>
                 </tr>
-                <c:forEach var="user" items="${users}" varStatus="status">
+                <c:forEach var="users" items="${users}" varStatus="status">
                     <tr class="row${status.count % 2}">
                         <td><c:out value="${users.user_id}" /></td>
                         <td><c:out value="${users.user_name}" /></td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${users.admin_flag == 0}">管理者</c:when>
+                                <c:when test="${users.admin_flag == 1}">作者</c:when>
+                                <c:when test="${users.admin_flag == 2}">読者</c:when>
+                            </c:choose>
+                        </td>
                         <td>
                             <c:choose>
                                 <c:when test="${users.delete_flag == 1}">
                                     （削除済み）
                                 </c:when>
                                 <c:otherwise>
-                                    <a href="<c:url value='/users/show?id=${user.id}' />">詳細を表示</a>
+                                    <a href="<c:url value='/users/show?id=${users.user_id}' />">詳細を表示</a>
                                 </c:otherwise>
                             </c:choose>
                         </td>

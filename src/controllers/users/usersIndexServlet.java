@@ -15,7 +15,7 @@ import models.User;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class usersIndexServlet
+ * Servlet implementation class UsersIndexServlet
  */
 @WebServlet("/users/index")
 public class UsersIndexServlet extends HttpServlet {

@@ -38,12 +38,10 @@ public class User {
     @Column(name = "user_name", nullable = false)
     private String user_name;
 
-    @Column(name = "user_type", nullable = false)
-    private String user_type;
-
     @Column(name = "password", length = 64, nullable = false)
     private String password;
 
+    //ユーザタイプ
     @Column(name = "admin_flag", nullable = false)
     private Integer admin_flag;
 
@@ -52,6 +50,9 @@ public class User {
 
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
+
+    @Column(name = "delete_flag", nullable = false)
+    private Integer delete_flag;
 
 
     public Integer getUser_id() {
@@ -68,14 +69,6 @@ public class User {
 
     public void setUser_name(String user_name) {
         this.user_name = user_name;
-    }
-
-    public String getUser_type() {
-        return user_type;
-    }
-
-    public void setUser_type(String user_type) {
-        this.user_type = user_type;
     }
 
     public String getPassword() {
@@ -118,6 +111,4 @@ public class User {
         this.delete_flag = delete_flag;
     }
 
-    @Column(name = "delete_flag", nullable = false)
-    private Integer delete_flag;
 }
