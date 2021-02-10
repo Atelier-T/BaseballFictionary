@@ -11,14 +11,12 @@
         <table id="user_list">
             <tbody>
                 <tr>
-                    <th>ユーザID</th>
                     <th>ユーザ名</th>
                     <th>ユーザタイプ</th>
                     <th>操作</th>
                 </tr>
                 <c:forEach var="users" items="${users}" varStatus="status">
                     <tr class="row${status.count % 2}">
-                        <td><c:out value="${users.user_id}" /></td>
                         <td><c:out value="${users.user_name}" /></td>
                         <td>
                             <c:choose>
