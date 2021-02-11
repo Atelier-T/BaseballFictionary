@@ -11,7 +11,21 @@
     <body>
         <div id="wrapper">
             <div id="header">
-                <h1>BaseBallFictionary</h1>
+                <div id="header_menu">
+                    <h1><a href="<c:url value='/' />">BaseBallFictionary</a></h1>&nbsp;&nbsp;&nbsp;
+                    <c:if test="${sessionScope.login_user != null}">
+                        <c:if test="${sessionScope.login_user.admin_flag == 0}">
+                            <a href="<c:url value='/users/index' />">ユーザ管理</a>&nbsp;
+                        </c:if>
+                        <a href="<c:url value='/titles/index' />">作品情報</a>&nbsp;
+                    </c:if>
+                    <c:if test="${sessionScope.login_user != null}">
+                        <div id="user_name">
+                            <c:out value="${sessionScope.login_user.user_name}" />&nbsp;さん&nbsp;&nbsp;&nbsp;
+                            <a href="<c:url value='/logout' />">ログアウト</a>
+                        </div>
+                    </c:if>
+                </div>
             </div>
             <div id="content">
                 ${param.content}
