@@ -48,7 +48,7 @@ public class UsersCreateServlet extends HttpServlet {
                         (String)this.getServletContext().getAttribute("pepper")
                     )
                 );
-            u.setAdmin_flag(Integer.parseInt(request.getParameter("admin_flag")));
+            u.setUser_flag(Integer.parseInt(request.getParameter("user_flag")));
 
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             u.setCreated_at(currentTime);

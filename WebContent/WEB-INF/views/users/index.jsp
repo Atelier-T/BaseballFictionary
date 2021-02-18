@@ -20,9 +20,8 @@
                         <td><c:out value="${users.user_name}" /></td>
                         <td>
                             <c:choose>
-                                <c:when test="${users.admin_flag == 0}">管理者</c:when>
-                                <c:when test="${users.admin_flag == 1}">作者</c:when>
-                                <c:when test="${users.admin_flag == 2}">読者</c:when>
+                                <c:when test="${users.user_flag == 0}">管理者</c:when>
+                                <c:when test="${users.user_flag == 1}">ユーザ</c:when>
                             </c:choose>
                         </td>
                         <td>

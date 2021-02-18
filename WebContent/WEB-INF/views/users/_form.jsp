@@ -17,11 +17,10 @@
 <input type="password" name="password" />
 <br /><br />
 
-<label for="admin_flag">ユーザタイプ</label><br />
-<select name="admin_flag">
-    <option value="0"<c:if test="${users.admin_flag == 0}"> selected</c:if>>管理者</option>
-    <option value="1"<c:if test="${users.admin_flag == 1}"> selected</c:if>>作者</option>
-    <option value="2"<c:if test="${users.admin_flag == 2}"> selected</c:if>>読者</option>
+<label for="user_flag">ユーザタイプ</label><br />
+<select name="user_flag">
+    <option value="0"<c:if test="${users.user_flag == 0}"> selected</c:if>>管理者</option>
+    <option value="1"<c:if test="${users.user_flag == 1}"> selected</c:if>>ユーザ</option>
 </select>
 <br /><br />
 

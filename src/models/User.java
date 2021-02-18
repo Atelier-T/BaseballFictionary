@@ -42,8 +42,8 @@ public class User {
     private String password;
 
     //ユーザタイプ
-    @Column(name = "admin_flag", nullable = false)
-    private Integer admin_flag;
+    @Column(name = "user_flag", nullable = false)
+    private Integer user_flag;
 
     @Column(name = "created_at", nullable = false)
     private Timestamp created_at;
@@ -79,12 +79,12 @@ public class User {
         this.password = password;
     }
 
-    public Integer getAdmin_flag() {
-        return admin_flag;
+    public Integer getUser_flag() {
+        return user_flag;
     }
 
-    public void setAdmin_flag(Integer admin_flag) {
-        this.admin_flag = admin_flag;
+    public void setUser_flag(Integer user_flag) {
+        this.user_flag = user_flag;
     }
 
     public Timestamp getCreated_at() {
