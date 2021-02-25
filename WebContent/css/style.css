@@ -141,16 +141,16 @@ table#title_list th {
 }
 
 table#title_list .title_name {
-    width: 30%;
+    width: 25%;
     padding: 10px 2%;
 }
 
-table#title_list .title_title {
-    width: 50%;
+table#title_list .user_name {
+    width: 45%;
 }
 
 table#title_list .title_action {
-    width: 10%;
+    width: 15%;
 }
 
 pre {

@@ -54,7 +54,7 @@ public class Title {
     @Column(name = "elapsed_year", nullable = true)
     private Integer elapsed_year;
 
-    @Column(name = "baseball_flag", nullable = false)
+    @Column(name = "baseball_flag", nullable = true)
     private Integer baseball_flag;
 
     @Column(name = "title_information", nullable = true)

@@ -12,15 +12,15 @@
         <table id="title_list">
             <tbody>
                 <tr>
-                    <th class="title_title">作品名</th>
+                    <th class="user_name">作品名</th>
                     <th class="title_name">作者名</th>
                     <th class="title_action">操作1</th>
                     <th class="title_action">操作2</th>
                 </tr>
-                <c:forEach var="title" items="${titles}" varStatus="status">
+                <c:forEach var="titles" items="${titles}" varStatus="status">
                     <tr class="row${status.count % 2}">
+                        <td class="user_name"><a href="<c:url value='/titles/show?id=${titles.title_id}' />">${titles.users.user_name}</a></td>
                         <td class="title_name"><c:out value="${titles.title_name}" /></td>
-                        <td class="title_title">${titles.users.user_name}</td>
                         <td class="title_action"><a href="<c:url value='/titles/show?id=${titles.title_id}' />">詳細を見る</a></td>
                         <td class="title_action"><a href="<c:url value='/bookmark/cleate?id=${titles.title_id}' />">ブックマークする</a></td>
                     </tr>
@@ -42,10 +42,10 @@
             </c:forEach>
         </div>
         <c:if test="${sessionScope.login_user != null}">
-            <p><a href="<c:url value='/titles/new' />">新規タイトルの登録</a></p>
+            <p><a href="<c:url value='/titles/new' />">新規作品の登録</a></p>
         </c:if>
         <c:if test="${sessionScope.login_user == null}">
-            <p><a href="<c:url value='/titles/new' />">新規タイトルの登録(ログインページへ)</a></p>
+            <p><a href="<c:url value='/titles/new' />">新規作品の登録(ログインページへ)</a></p>
         </c:if>
 
     </c:param>

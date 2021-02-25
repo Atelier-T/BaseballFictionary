@@ -14,7 +14,7 @@
 <input type="text" name="title_name" value="${titles.title_name}" />
 <br /><br />
 
-<label for="title">作者名</label><br />
+<label for="user_name">作者名</label><br />
 <c:out value="${sessionScope.login_user.user_name}" />
 <br /><br />
 
@@ -22,19 +22,19 @@
 <input type="url" name="title_url" value="${titles.title_url}" />
 <br /><br />
 
-<label for="title_count">話数</label><br />
-<input type="tel" name="title_count" value="${titles.title_count}" />
+<label for="title_count">話数(半角数字)</label><br />
+<input type="number" name="title_count" value="${titles.title_count}" pattern=^[0-9]+$ />
 <br /><br />
 
-<label for="year">開始時点での作中年度</label><br />
-<input type="tel" name="year" value="${titles.year}" />
+<label for="year">開始時点での作中年度(半角数字)</label><br />
+<input type="number" name="year" value="${titles.year}" pattern=^[0-9]+$ />
 <br /><br />
 
-<label for="elapsed_year">開始時点からの作中での経過年数(例:1年目なら「0」)</label><br />
-<input type="tel" name="elapsed_year" value="${titles.elapsed_year}" />
+<label for="elapsed_year">開始時点からの作中での経過年数(半角数字)(例:1年目なら「0」)</label><br />
+<input type="number" name="elapsed_year" value="${titles.elapsed_year}" pattern=^[0-9]+$ />
 <br /><br />
 
-<label for="title_information">作品情報</label><br />
+<label for="title_information">作品情報　詳細</label><br />
 <textarea name="content" rows="10" cols="50">${titles.title_information}</textarea>
 <br /><br />
 
