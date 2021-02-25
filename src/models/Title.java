@@ -23,6 +23,14 @@ import javax.persistence.Table;
     @NamedQuery(
         name = "getTitlesCount",
         query = "SELECT COUNT(t) FROM Title AS t"
+    ),
+    @NamedQuery(
+        name = "getMyAllTitles",
+        query = "SELECT t FROM Title AS t WHERE t.users = :users ORDER BY t.title_id DESC"
+    ),
+    @NamedQuery(
+        name = "getMyTitlesCount",
+        query = "SELECT COUNT(t) FROM Title AS t WHERE t.users = :users"
     )
 })
 

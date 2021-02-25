@@ -16,12 +16,14 @@
                     <th class="title_name">作者名</th>
                     <th class="title_action">操作1</th>
                     <th class="title_action">操作2</th>
+                    <th class="title_action">操作3</th>
                 </tr>
                 <c:forEach var="titles" items="${titles}" varStatus="status">
                     <tr class="row${status.count % 2}">
                         <td class="user_name"><a href="<c:url value='/titles/show?id=${titles.title_id}' />">${titles.users.user_name}</a></td>
                         <td class="title_name"><c:out value="${titles.title_name}" /></td>
                         <td class="title_action"><a href="<c:url value='/titles/show?id=${titles.title_id}' />">詳細を見る</a></td>
+                        <td class="title_action"><a href="<c:url value='/characters/show?id=${characters.chara_id}' />">登場人物紹介</a></td>
                         <td class="title_action"><a href="<c:url value='/bookmark/cleate?id=${titles.title_id}' />">ブックマークする</a></td>
                     </tr>
                 </c:forEach>

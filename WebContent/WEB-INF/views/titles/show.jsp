@@ -54,6 +54,8 @@
                     </tbody>
                 </table>
 
+                <p><a href="<c:url value='/characters/show?id=${characters.chara_id}' />">登場人物紹介</a></p>
+
                 <c:if test="${sessionScope.login_user.user_id == titles.users.user_id}">
                     <p><a href="<c:url value="/titles/edit?id=${titles.title_id}" />">作品情報を編集する</a></p>
                 </c:if>
