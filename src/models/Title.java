@@ -46,9 +46,11 @@ public class Title {
     @Column(name = "title_count", nullable = true)
     private Integer title_count;
 
+    //開始時点での作中年度
     @Column(name = "year", nullable = true)
     private Integer year;
 
+    //開始時点からの作中での経過年数
     @Column(name = "elapsed_year", nullable = true)
     private Integer elapsed_year;
 

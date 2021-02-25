@@ -8,7 +8,7 @@
                 <c:out value="${flush}"></c:out>
             </div>
         </c:if>
-        <h2>作品　一覧</h2>
+        <h2>作品情報　一覧</h2>
         <table id="title_list">
             <tbody>
                 <tr>
