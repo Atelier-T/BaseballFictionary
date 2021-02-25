@@ -61,11 +61,6 @@ td {
     padding: 10px 2%;
 }
 
-td {
-    width: 66%;
-    padding: 10px 2%;
-}
-
 button {
     font-size: 14px;
     padding: 5px 10px;
@@ -140,26 +135,22 @@ h1 a {
     color: #eeeeee;
 }
 
-table#report_list th {
+table#title_list th {
     font-weight: bold;
     padding: 10px 2%;
 }
 
-table#report_list .report_name {
-    width: 20%;
+table#title_list .title_name {
+    width: 30%;
     padding: 10px 2%;
 }
 
-table#report_list .report_date {
-    width: 20%;
+table#title_list .title_title {
+    width: 50%;
 }
 
-table#report_list .report_title {
-    width: 37%;
-}
-
-table#report_list .report_action {
-    width: 13%;
+table#title_list .title_action {
+    width: 10%;
 }
 
 pre {
