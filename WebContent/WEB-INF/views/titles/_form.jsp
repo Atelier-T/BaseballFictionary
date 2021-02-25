@@ -26,7 +26,7 @@
 <input type="number" name="title_count" value="${titles.title_count}" pattern=^[0-9]+$ />
 <br /><br />
 
-<label for="year">開始時点での作中年度(半角数字)</label><br />
+<label for="year">開始時点での作中年度(年数のみ、半角数字)</label><br />
 <input type="number" name="year" value="${titles.year}" pattern=^[0-9]+$ />
 <br /><br />
 
@@ -34,7 +34,7 @@
 <input type="number" name="elapsed_year" value="${titles.elapsed_year}" pattern=^[0-9]+$ />
 <br /><br />
 
-<label for="title_information">作品情報　詳細</label><br />
+<label for="title_information">作品紹介</label><br />
 <textarea name="content" rows="10" cols="50">${titles.title_information}</textarea>
 <br /><br />
 
