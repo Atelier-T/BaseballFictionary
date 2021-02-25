@@ -54,8 +54,8 @@
                     </tbody>
                 </table>
 
-                <c:if test="${sessionScope.login_user.id == titles.users.user_id}">
-                    <p><a href="<c:url value="/titles/edit?id=${titles.id}" />">作品情報を編集する</a></p>
+                <c:if test="${sessionScope.login_user.user_id == titles.users.user_id}">
+                    <p><a href="<c:url value="/titles/edit?id=${titles.title_id}" />">作品情報を編集する</a></p>
                 </c:if>
             </c:when>
             <c:otherwise>
