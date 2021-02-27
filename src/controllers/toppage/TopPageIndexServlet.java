@@ -55,7 +55,7 @@ public class TopPageIndexServlet extends HttpServlet {
 
         em.close();
 
-        request.setAttribute("titless", titles);
+        request.setAttribute("titles", titles);
         request.setAttribute("titles_count", titles_count);
         request.setAttribute("page", page);
 

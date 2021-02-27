@@ -1,6 +1,7 @@
 package controllers.users;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.Title;
 import models.User;
 import utils.DBUtil;
 
@@ -35,9 +37,15 @@ public class UsersShowServlet extends HttpServlet {
 
         User u = em.find(User.class, Integer.parseInt(request.getParameter("id")));
 
+        List<Title> titles = em.createNamedQuery("getMyAllTitles", Title.class)
+                .setParameter("users", u)
+                .getResultList();
+
         em.close();
 
         request.setAttribute("users", u);
+        request.setAttribute("titles", titles);
+
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/users/show.jsp");
         rd.forward(request, response);

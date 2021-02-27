@@ -17,7 +17,11 @@
                 </tr>
                 <c:forEach var="users" items="${users}" varStatus="status">
                     <tr class="row${status.count % 2}">
-                        <td><c:out value="${users.user_name}" /></td>
+                        <td class="title_name">
+                            <a href="<c:url value='/users/show?id=${users.user_id}' />">
+                                <c:out value="${users.user_name}" />
+                            </a>
+                        </td>
                         <td>
                             <c:choose>
                                 <c:when test="${users.user_flag == 0}">管理者</c:when>

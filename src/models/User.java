@@ -79,6 +79,7 @@ public class User {
         this.password = password;
     }
 
+    //0.管理人　1.ユーザ
     public Integer getUser_flag() {
         return user_flag;
     }

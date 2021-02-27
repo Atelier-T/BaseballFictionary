@@ -11,15 +11,15 @@
                     <tbody>
                         <tr>
                             <th>作品名</th>
-                            <td><c:out value="${titles.title_name}" /></td>
+                            <td><a href="<c:url value='/titles/show?id=${titles.title_id}' />"><c:out value="${titles.title_name}" /></a></td>
                         </tr>
                         <tr>
                             <th>作者名</th>
-                            <td><c:out value="${titles.users.user_name}" /></td>
+                            <td class="title_name"><a href="<c:url value='/users/show?id=${titles.users.user_id}' />"><c:out value="${titles.users.user_name}" /></a>
                         </tr>
                         <tr>
                             <th>URL</th>
-                            <td><a href="<c:url value="${titles.title_name}" />" ></a></td>
+                            <td><a href="<c:url value="${titles.title_url}" />" ></a></td>
                         </tr>
                         <tr>
                             <th>開始時の作中年度</th>
@@ -54,7 +54,9 @@
                     </tbody>
                 </table>
 
-                <p><a href="<c:url value='/characters/show?id=${characters.chara_id}' />">登場人物紹介</a></p>
+                <div id=important>
+                    <p><a href="<c:url value='/characters/show?id=${characters.chara_id}' />">登場人物紹介</a></p>
+                </div>
 
                 <c:if test="${sessionScope.login_user.user_id == titles.users.user_id}">
                     <p><a href="<c:url value="/titles/edit?id=${titles.title_id}" />">作品情報を編集する</a></p>

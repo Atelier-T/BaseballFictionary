@@ -160,3 +160,7 @@ pre {
 h3 {
     font-size: larger;
 }
+#important {
+    font-weight: bold;
+    font-size: 24px;
+}
