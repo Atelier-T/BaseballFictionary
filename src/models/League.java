@@ -9,9 +9,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Table(name = "leagues")
+
+@NamedQueries({
+    @NamedQuery(
+        name = "getAllLeagues",
+        query = "SELECT l FROM League AS l ORDER BY l.titles DESC"
+    ),
+    @NamedQuery(
+        name = "getLeaguesCount",
+        query = "SELECT COUNT(l) FROM League AS l"
+    )
+})
 
 @Entity
 public class League {
