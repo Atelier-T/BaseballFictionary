@@ -10,7 +10,7 @@
         <h2>『${titles.title_name}』のリーグ情報</h2>
 
         <c:if test="${sessionScope.login_user.user_id == titles.users.user_id}">
-            <p><a href="<c:url value='/titles/new' />">新規リーグの登録</a></p>
+            <p><a href="<c:url value='/leagues/new?id=${titles.title_id}' />">新規リーグの登録</a></p>
         </c:if>
 
         <table id="league_list">
