@@ -27,6 +27,10 @@ public class Team {
     @JoinColumn(name = "league_id", nullable = false)
     private League leagues;
 
+    @ManyToOne
+    @JoinColumn(name = "title_id", nullable = false)
+    private Title titles;
+
     @Column(name = "team_information", nullable = true)
     private String team_information;
 
@@ -59,6 +63,14 @@ public class Team {
 
     public void setLeagues(League leagues) {
         this.leagues = leagues;
+    }
+
+    public Title getTitles() {
+        return titles;
+    }
+
+    public void setTitles(Title titles) {
+        this.titles = titles;
     }
 
     public String getTeam_information() {

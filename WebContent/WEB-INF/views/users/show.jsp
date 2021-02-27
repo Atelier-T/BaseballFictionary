@@ -64,7 +64,7 @@
                                 <td class="user_name"><a href="<c:url value='/titles/show?id=${titles.title_id}' />"><c:out value="${titles.title_name}" /></a></td>
                                 <td class="title_name"><a href="<c:url value='/users/show?id=${titles.users.user_id}' />"><c:out value="${titles.users.user_name}" /></a></td>
                                 <td class="title_action"><a href="<c:url value='/titles/show?id=${titles.title_id}' />">詳細を見る</a></td>
-                                <td class="title_action"><a href="<c:url value='/characters/show?id=${characters.chara_id}' />">登場人物紹介</a></td>
+                                <td class="title_action"><a href="<c:url value='/data/index?id=${titles.title_id}' />">各種データ</a></td>
                                 <td class="title_action"><a href="<c:url value='/bookmark/cleate?id=${titles.title_id}' />">ブックマークする</a></td>
                             </tr>
                         </c:forEach>
