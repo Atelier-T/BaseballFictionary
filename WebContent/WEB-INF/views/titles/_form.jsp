@@ -35,7 +35,7 @@
 <br /><br />
 
 <label for="title_information">作品紹介</label><br />
-<textarea name="content" rows="10" cols="50">${titles.title_information}</textarea>
+<textarea name="title_information" rows="10" cols="50">${titles.title_information}</textarea>
 <br /><br />
 
 <input type="hidden" name="_token" value="${_token}" />

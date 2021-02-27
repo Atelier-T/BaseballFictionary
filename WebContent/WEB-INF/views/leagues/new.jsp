@@ -4,10 +4,10 @@
     <c:param name="content">
         <h2>リーグ情報　新規登録ページ</h2>
 
-        <form method="POST" action="<c:url value='/leagues/create' />">
+        <form method="POST" action="<c:url value='/leagues/create?id=${titles.title_id}' />">
             <c:import url="_form.jsp" />
         </form>
 
-        <p><a href="<c:url value='/leagues/index' />">一覧に戻る</a></p>
+        <p><a href="<c:url value='/leagues/index?id=${titles.title_id}' />">一覧に戻る</a></p>
     </c:param>
 </c:import>

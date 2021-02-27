@@ -25,8 +25,8 @@
 </select>
 <br /><br />
 
-<label for="title_information">リーグ紹介</label><br />
-<textarea name="content" rows="10" cols="50">${titles.title_information}</textarea>
+<label for="league_information">リーグ紹介</label><br />
+<textarea name="league_information" rows="10" cols="50">${leagues.league_information}</textarea>
 <br /><br />
 
 <input type="hidden" name="_token" value="${_token}" />
