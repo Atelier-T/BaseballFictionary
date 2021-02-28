@@ -23,6 +23,14 @@ import javax.persistence.Table;
     @NamedQuery(
         name = "getTeamsCount",
         query = "SELECT COUNT(t) FROM Team AS t"
+    ),
+    @NamedQuery(
+        name = "getMyAllTeams",
+        query = "SELECT t FROM Team AS t WHERE t.titles = :titles ORDER BY t.team_id DESC"
+    ),
+    @NamedQuery(
+        name = "getMyTeamsCount",
+        query = "SELECT COUNT(t) FROM Team AS t WHERE t.titles = :titles"
     )
 })
 
@@ -37,7 +45,7 @@ public class Team {
     private String team_name;
 
     @ManyToOne
-    @JoinColumn(name = "league_id", nullable = false)
+    @JoinColumn(name = "league_id", nullable = true)
     private League leagues;
 
     @ManyToOne

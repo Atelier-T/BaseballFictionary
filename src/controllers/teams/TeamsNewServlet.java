@@ -38,7 +38,8 @@ public class TeamsNewServlet extends HttpServlet {
 
         Title t = em.find(Title.class, Integer.parseInt(request.getParameter("id")));
 
-        List<League> leagues = em.createNamedQuery("getAllLeagues", League.class)
+        List<League> leagues = em.createNamedQuery("getMyAllLeagues", League.class)
+                                    .setParameter("titles", t)
                                     .getResultList();
 
         em.close();

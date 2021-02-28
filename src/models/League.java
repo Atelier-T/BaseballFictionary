@@ -23,6 +23,14 @@ import javax.persistence.Table;
     @NamedQuery(
         name = "getLeaguesCount",
         query = "SELECT COUNT(l) FROM League AS l"
+    ),
+    @NamedQuery(
+        name = "getMyAllLeagues",
+        query = "SELECT l FROM League AS l WHERE l.titles = :titles ORDER BY l.league_id DESC"
+    ),
+    @NamedQuery(
+        name = "getMyLeaguesCount",
+        query = "SELECT COUNT(l) FROM League AS l WHERE l.titles = :titles"
     )
 })
 
