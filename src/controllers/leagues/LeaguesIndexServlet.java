@@ -39,6 +39,7 @@ public class LeaguesIndexServlet extends HttpServlet {
         try{
             page = Integer.parseInt(request.getParameter("page"));
         } catch(NumberFormatException e) { }
+
         List<League> leagues = em.createNamedQuery("getAllLeagues", League.class)
                                      .setFirstResult(15 * (page - 1))
                                      .setMaxResults(15)
@@ -51,6 +52,7 @@ public class LeaguesIndexServlet extends HttpServlet {
 
         em.close();
 
+        request.setAttribute("page", page);
         request.setAttribute("leagues", leagues);
         request.setAttribute("leagues_count", leagues_count);
         request.setAttribute("titles", t);
