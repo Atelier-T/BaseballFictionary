@@ -21,8 +21,8 @@
                 </tr>
                 <c:forEach var="leagues" items="${leagues}" varStatus="status">
                     <tr class="row${status.count % 2}">
-                        <td class="league_name"><a href="<c:url value='/leagues/show?id=${league.league_id}' />"><c:out value="${leagues.league_name}" /></a></td>
-                        <td class="league_action"><a href="<c:url value='/leagues/show?id=${league.league_id}' />">詳細を見る</a></td>
+                        <td class="league_name"><a href="<c:url value='/leagues/show?id=${leagues.league_id}' />"><c:out value="${leagues.league_name}" /></a></td>
+                        <td class="league_action"><a href="<c:url value='/leagues/show?id=${leagues.league_id}' />">詳細を見る</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
