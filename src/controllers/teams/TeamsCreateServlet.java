@@ -42,12 +42,14 @@ public class TeamsCreateServlet extends HttpServlet {
 
             Title t = em.find(Title.class, Integer.parseInt(request.getParameter("id")));
 
+            League l = em.find(League.class, Integer.parseInt(request.getParameter("league_name")));
+
             request.getSession().setAttribute("title_id", t);
 
             Team te = new Team();
 
             te.setTeam_name(request.getParameter("team_name"));
-            te.setLeagues((League)request.getSession().getAttribute("league_name"));
+            te.setLeagues(l);
             te.setTitles((Title)request.getSession().getAttribute("title_id"));
             te.setTeam_information(request.getParameter("team_information"));
 

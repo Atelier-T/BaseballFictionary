@@ -17,7 +17,7 @@
 <label for="league_name">リーグ名</label><br />
 <select name="league_name">
 <c:forEach var="leagues" items="${leagues}" varStatus="status">
-    <option value="${leagues}"<c:if test="${leagues.league_name == leagues}"> selected</c:if>>${leagues.league_name}</option>
+    <option value="${leagues.league_id}"<c:if test="${leagues.league_name == leagues}"> selected</c:if>>${leagues.league_name}</option>
 </c:forEach>
 </select>
 <br /><br />

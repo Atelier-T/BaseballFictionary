@@ -35,20 +35,22 @@ public class TeamsIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
+        Title t = em.find(Title.class, Integer.parseInt(request.getParameter("id")));
+
         int page = 1;
         try{
             page = Integer.parseInt(request.getParameter("page"));
         } catch(NumberFormatException e) { }
 
-        List<Team> teams = em.createNamedQuery("getAllTeams", Team.class)
-                                     .setFirstResult(15 * (page - 1))
-                                     .setMaxResults(15)
-                                     .getResultList();
+        List<Team> teams = em.createNamedQuery("getMyAllTeams", Team.class)
+                                .setParameter("titles", t)
+                                .setFirstResult(15 * (page - 1))
+                                .setMaxResults(15)
+                                .getResultList();
 
-        long teams_count = (long)em.createNamedQuery("getTeamsCount", Long.class)
-                                       .getSingleResult();
-
-        Title t = em.find(Title.class, Integer.parseInt(request.getParameter("id")));
+        long teams_count = (long)em.createNamedQuery("getMyTeamsCount", Long.class)
+                                      .setParameter("titles", t)
+                                      .getSingleResult();
 
         em.close();
 
