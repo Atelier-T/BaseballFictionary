@@ -18,7 +18,7 @@
                             <td><a href="<c:url value='/titles/show?id=${leagues.titles.title_id}' />"><c:out value="${leagues.titles.title_name}" /></a></td>
                         </tr>
                         <tr>
-                            <th>リーグ情報　紹介</th>
+                            <th>リーグ紹介</th>
                             <td>
                                 <c:out value="${leagues.league_information}" />
                             </td>
