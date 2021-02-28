@@ -47,6 +47,6 @@
             </c:otherwise>
         </c:choose>
 
-        <p><a href="<c:url value="/league/index?id=${leagues.titles.title_id}" />">一覧に戻る</a></p>
+        <p><a href="<c:url value="/leagues/index?id=${leagues.titles.title_id}" />">一覧に戻る</a></p>
     </c:param>
 </c:import>
