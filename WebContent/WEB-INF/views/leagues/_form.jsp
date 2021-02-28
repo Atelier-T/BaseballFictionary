@@ -15,7 +15,15 @@
 <br /><br />
 
 <label for="name">作品名</label><br />
-<c:out value="${titles.title_name}" />
+    <c:choose>
+       <c:when test="${titles != null}">
+           <c:out value="${titles.title_name}" />
+       </c:when>
+       <c:when test="${leagues.titles != null}">
+           <c:out value="${leagues.titles.title_name}" />
+       </c:when>
+    </c:choose>
+
 <br /><br />
 
 <label for="country_flag">国内/国外</label><br />
