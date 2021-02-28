@@ -177,3 +177,21 @@ table#league_list .league_name {
 table#league_list .league_action {
     width: 60%;
 }
+table#team_list th {
+    font-weight: bold;
+    padding: 10px 2%;
+}
+
+table#team_list .team_name {
+    width: 30%;
+    padding: 10px 2%;
+}
+
+table#team_list .league_name {
+    width: 30%;
+    padding: 10px 2%;
+}
+
+table#team_list .league_action {
+    width: 40%;
+}
