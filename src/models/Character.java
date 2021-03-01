@@ -23,6 +23,10 @@ public class Character {
     @Column(name = "chara_name", length = 255, nullable = false)
     private String chara_name;
 
+    //読み方
+    @Column(name = "chara_name_read", length = 255, nullable = false)
+    private String chara_name_read;
+
     @ManyToOne
     @JoinColumn(name = "title_id", nullable = false)
     private Title titles;
@@ -79,6 +83,14 @@ public class Character {
 
     public void setChara_name(String chara_name) {
         this.chara_name = chara_name;
+    }
+
+    public String getChara_name_read() {
+        return chara_name_read;
+    }
+
+    public void setChara_name_read(String chara_name_read) {
+        this.chara_name_read = chara_name_read;
     }
 
     public Title getTitles() {

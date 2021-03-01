@@ -32,7 +32,11 @@ public class Player {
     @Column(name = "player_name", length = 255, nullable = true)
     private String player_name;
 
-  //所属球団
+    //登録名の読み方　player_nameがnullならchara_name_readを自動で取得
+    @Column(name = "player_name_read", length = 255, nullable = true)
+    private String player_name_read;
+
+    //所属球団
     @ManyToOne
     @JoinColumn(name = "team_id", nullable = true)
     private Team teams;
@@ -129,6 +133,14 @@ public class Player {
 
     public void setPlayer_name(String player_name) {
         this.player_name = player_name;
+    }
+
+    public String getPlayer_name_read() {
+        return player_name_read;
+    }
+
+    public void setPlayer_name_read(String player_name_read) {
+        this.player_name_read = player_name_read;
     }
 
     public Team getTeams() {
