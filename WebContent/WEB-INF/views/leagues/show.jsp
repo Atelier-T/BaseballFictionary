@@ -43,7 +43,7 @@
                 </c:if>
             </c:when>
             <c:otherwise>
-                <h2>お探しの作品は見つかりませんでした。</h2>
+                <h2>お探しの球団は見つかりませんでした。</h2>
             </c:otherwise>
         </c:choose>
 
