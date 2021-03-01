@@ -20,13 +20,9 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer player_id;
 
-    //データの年度　「年度別データ詳細」用
-    @Column(name = "data_year", nullable = true)
-    private Integer data_year;
-
     @ManyToOne
-    @JoinColumn(name = "chara_id", nullable = true)
-    private Character characters;
+    @JoinColumn(name = "now_id", nullable = true)
+    private NowStatus now_status;
 
     //登録名　nullならchara_nameを自動で取得
     @Column(name = "player_name", length = 255, nullable = true)
@@ -41,22 +37,30 @@ public class Player {
     @JoinColumn(name = "team_id", nullable = true)
     private Team teams;
 
-    //0.未分類　1.投手　2.捕手　3.内野手　4.外野手　5.監督　6.ヘッドコーチ　7.投手コーチ　8.打撃コーチ　9.走塁コーチ　10.バッテリーコーチ　11.内野守備コーチ　12.外野守備コーチ
+    //0.未分類　1.投手　2.捕手　3.内野手　4.外野手
+    //5.監督　6.ヘッドコーチ　7.投手コーチ　8.打撃コーチ　9.走塁コーチ
+    //10.バッテリーコーチ　11.内野守備コーチ　12.外野守備コーチ
+    //13.トレーナー　14.打撃投手　15.チームドクター　16.通訳
+    //17.オーナー　18.球団幹部　19.マスコット　20.その他球団職員
     @Column(name = "posision1", nullable = true)
     private Integer posision1;
 
-    //0.未分類　1.投手　2.捕手　3.内野手　4.外野手　5.監督　6.ヘッドコーチ　7.投手コーチ　8.打撃コーチ　9.走塁コーチ　10.バッテリーコーチ　11.内野守備コーチ　12.外野守備コーチ
     @Column(name = "posision2", nullable = true)
     private Integer posision2;
 
-    //0.未分類　1.投手　2.捕手　3.内野手　4.外野手　5.監督　6.ヘッドコーチ　7.投手コーチ　8.打撃コーチ　9.走塁コーチ　10.バッテリーコーチ　11.内野守備コーチ　12.外野守備コーチ
     @Column(name = "posision3", nullable = true)
     private Integer posision3;
+
+    @Column(name = "posision2", nullable = true)
+    private Integer posision4;
+
+    @Column(name = "posision3", nullable = true)
+    private Integer posision5;
 
     @Column(name = "posision_detail", nullable = true)
     private String posision_detail;
 
-    //背番号
+    //背番号　半角で入力させる
     @Column(name = "number", nullable = true)
     private String number;
 
@@ -111,20 +115,12 @@ public class Player {
         this.player_id = player_id;
     }
 
-    public Integer getData_year() {
-        return data_year;
+    public NowStatus getNow_status() {
+        return now_status;
     }
 
-    public void setData_year(Integer data_year) {
-        this.data_year = data_year;
-    }
-
-    public Character getCharacters() {
-        return characters;
-    }
-
-    public void setCharacters(Character characters) {
-        this.characters = characters;
+    public void setNow_status(NowStatus now_status) {
+        this.now_status = now_status;
     }
 
     public String getPlayer_name() {
@@ -173,6 +169,22 @@ public class Player {
 
     public void setPosision3(Integer posision3) {
         this.posision3 = posision3;
+    }
+
+    public Integer getPosision4() {
+        return posision4;
+    }
+
+    public void setPosision4(Integer posision4) {
+        this.posision4 = posision4;
+    }
+
+    public Integer getPosision5() {
+        return posision5;
+    }
+
+    public void setPosision5(Integer posision5) {
+        this.posision5 = posision5;
     }
 
     public String getPosision_detail() {

@@ -27,9 +27,15 @@ public class Character {
     @Column(name = "chara_name_read", length = 255, nullable = false)
     private String chara_name_read;
 
+    //作品情報
     @ManyToOne
     @JoinColumn(name = "title_id", nullable = false)
     private Title titles;
+
+    //現在の選手or選手以外としての情報　nullならtitleのyearなどを参考に自動分類
+    @ManyToOne
+    @JoinColumn(name = "now_status", nullable = true)
+    private NowStatus now_status;
 
     //原典
     @Column(name = "original", length = 255, nullable = true)
@@ -99,6 +105,14 @@ public class Character {
 
     public void setTitles(Title titles) {
         this.titles = titles;
+    }
+
+    public NowStatus getNow_status() {
+        return now_status;
+    }
+
+    public void setNow_status(NowStatus now_status) {
+        this.now_status = now_status;
     }
 
     public String getOriginal() {

@@ -21,23 +21,17 @@ public class NotPlayer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer not_player_id;
 
-  //データの年度　「年度別データ詳細」用
-    @Column(name = "data_year", nullable = true)
-    private Integer data_year;
-
     @ManyToOne
-    @JoinColumn(name = "chara_id", nullable = true)
-    private Character characters;
+    @JoinColumn(name = "now_id", nullable = true)
+    private NowStatus now_status;
 
-    //0.未分類　1.トレーナー　2.打撃投手　3.チームドクター　4.通訳　5.オーナー　6.マスコット　7.その他球団職員　8.OB・OG　9.ファン　10.審判　11.コミッショナー　12.その他球界関係者　13.その他
+    //0.未分類　1.OB・OG　2.ファン　3.選手親族　4.審判　5.コミッショナー　6.その他球界関係者　7.その他一般人
     @Column(name = "chara_type1", nullable = false)
     private Integer chara_type1;
 
-    //0.未分類　1.トレーナー　2.打撃投手　3.チームドクター　4.通訳　5.オーナー　6.マスコット　7.その他球団職員　8.OB・OG　9.ファン　10.審判　11.コミッショナー　12.その他球界関係者　13.その他
     @Column(name = "chara_type2", nullable = false)
     private Integer chara_type2;
 
-    //0.未分類　1.トレーナー　2.打撃投手　3.チームドクター　4.通訳　5.オーナー　6.マスコット　7.その他球団職員　8.OB・OG　9.ファン　10.審判　11.コミッショナー　12.その他球界関係者　13.その他
     @Column(name = "chara_type3", nullable = false)
     private Integer chara_type3;
 
@@ -59,24 +53,16 @@ public class NotPlayer {
         return not_player_id;
     }
 
-    public Integer getData_year() {
-        return data_year;
-    }
-
-    public void setData_year(Integer data_year) {
-        this.data_year = data_year;
-    }
-
     public void setNot_player_id(Integer not_player_id) {
         this.not_player_id = not_player_id;
     }
 
-    public Character getCharacters() {
-        return characters;
+    public NowStatus getNow_status() {
+        return now_status;
     }
 
-    public void setCharacters(Character characters) {
-        this.characters = characters;
+    public void setNow_status(NowStatus now_status) {
+        this.now_status = now_status;
     }
 
     public Integer getChara_type1() {
