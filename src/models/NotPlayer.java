@@ -14,7 +14,6 @@ import javax.persistence.Table;
 @Table(name = "not_players")
 
 @Entity
-
 public class NotPlayer {
     @Id
     @Column(name = "not_player_id")

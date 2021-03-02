@@ -12,7 +12,6 @@ import javax.persistence.Table;
 @Table(name = "now_status")
 
 @Entity
-
 public class NowStatus {
     @Id
     @Column(name = "now_id")

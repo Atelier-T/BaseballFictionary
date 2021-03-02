@@ -51,10 +51,10 @@ public class Player {
     @Column(name = "posision3", nullable = true)
     private Integer posision3;
 
-    @Column(name = "posision2", nullable = true)
+    @Column(name = "posision4", nullable = true)
     private Integer posision4;
 
-    @Column(name = "posision3", nullable = true)
+    @Column(name = "posision5", nullable = true)
     private Integer posision5;
 
     @Column(name = "posision_detail", nullable = true)
