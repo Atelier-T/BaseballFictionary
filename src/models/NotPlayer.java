@@ -21,8 +21,16 @@ public class NotPlayer {
     private Integer not_player_id;
 
     @ManyToOne
-    @JoinColumn(name = "now_id", nullable = true)
+    @JoinColumn(name = "now_status", nullable = false)
     private NowStatus now_status;
+
+    //登録名　nullならchara_nameを自動で取得
+    @Column(name = "not_player_name", length = 255, nullable = true)
+    private String not_player_name;
+
+    //登録名の読み方　not_player_nameがnullならchara_name_readを自動で取得
+    @Column(name = "not_player_name_read", length = 255, nullable = true)
+    private String not_player_name_read;
 
     //0.未分類　1.OB・OG　2.ファン　3.選手親族　4.審判　5.コミッショナー　6.その他球界関係者　7.その他一般人
     @Column(name = "chara_type1", nullable = false)
@@ -62,6 +70,22 @@ public class NotPlayer {
 
     public void setNow_status(NowStatus now_status) {
         this.now_status = now_status;
+    }
+
+    public String getNot_player_name() {
+        return not_player_name;
+    }
+
+    public void setNot_player_name(String not_player_name) {
+        this.not_player_name = not_player_name;
+    }
+
+    public String getNot_player_name_read() {
+        return not_player_name_read;
+    }
+
+    public void setNot_player_name_read(String not_player_name_read) {
+        this.not_player_name_read = not_player_name_read;
     }
 
     public Integer getChara_type1() {

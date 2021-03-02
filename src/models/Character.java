@@ -9,9 +9,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Table(name = "characters")
+
+@NamedQueries({
+    @NamedQuery(
+        name = "getMyAllCharacters",
+        query = "SELECT c FROM Character AS c WHERE c.titles = :titles ORDER BY c.chara_id DESC"
+    ),
+    @NamedQuery(
+        name = "getMyCharactersCount",
+        query = "SELECT COUNT(c) FROM Character AS c WHERE c.titles = :titles"
+    )
+})
 
 @Entity
 public class Character {

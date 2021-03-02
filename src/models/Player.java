@@ -21,7 +21,7 @@ public class Player {
     private Integer player_id;
 
     @ManyToOne
-    @JoinColumn(name = "now_id", nullable = true)
+    @JoinColumn(name = "now_status", nullable = false)
     private NowStatus now_status;
 
     //登録名　nullならchara_nameを自動で取得

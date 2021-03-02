@@ -7,7 +7,7 @@
                 <c:out value="${flush}"></c:out>
             </div>
         </c:if>
-        <h2><a href="<c:url value='/titles/index?id=${titles.title_id}' />">『${titles.title_name}』</a>のリーグ情報</h2>
+        <h2><a href="<c:url value='/titles/show?id=${titles.title_id}' />">『${titles.title_name}』</a>のリーグ情報</h2>
 
         <c:if test="${sessionScope.login_user.user_id == titles.users.user_id}">
             <p><a href="<c:url value='/leagues/new?id=${titles.title_id}' />">新規リーグの登録</a></p>
