@@ -41,7 +41,8 @@
 </select>
 <br /><br />
 
-<label for="birth_year">誕生年度(半角数字)(整理番号扱いとしても良い)</label><br />
+<label for="birth_year">誕生年度(年数のみ、半角数字)</label><br />
+<label for="birth_year">※これと作品情報の「作中年度」「経過年数」から、登場人物の年齢を算出します。</label><br />
 <input type="number" name="birth_year" value="${characters.birth_year}" pattern=^[0-9]+$ />
 <br /><br />
 
@@ -49,7 +50,7 @@
 <input type="text" name="birth_place" value="${characters.birth_place}" />
 <br /><br />
 
-<label for="appearance">初登場話(半角数字)</label><br />
+<label for="appearance">初登場話(数値のみ、半角数字)</label><br />
 <input type="number" name="appearance" value="${characters.appearance}" pattern=^[0-9]+$ />
 <br /><br />
 
@@ -64,7 +65,7 @@
 <textarea name="chara_information" rows="10" cols="50">${characters.chara_information}</textarea>
 <br /><br />
 
-<p>※選手としての細かいデータなどは後から設定します</p>
+<p>※選手としての細かいデータなどは別のページで設定します。</p>
 
 <input type="hidden" name="_token" value="${_token}" />
 <button type="submit">登録</button>

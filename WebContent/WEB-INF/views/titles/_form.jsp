@@ -27,6 +27,7 @@
 <br /><br />
 
 <label for="year">開始時点での作中年度(年数のみ、半角数字)</label><br />
+<label for="year">※これと↓の「経過年数」と登場人物の「誕生年度」から、登場人物の年齢を算出します。</label><br />
 <input type="number" name="year" value="${titles.year}" pattern=^[0-9]+$ />
 <br /><br />
 

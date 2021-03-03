@@ -34,7 +34,7 @@
                                             </c:when>
                                             <c:when test="${characters.now_status != null}">
                                                 <a href="<c:url value='/titles/show?id=${characters.now_status.now_id}' />">
-                                                    <c:out value="${characters.now_status.now_year}" />
+                                                    <c:out value="${characters.titles.year + characters.titles.elapsed_year - characters.birth_year}" />歳時
                                                     (
                                                     <c:choose>
                                                         <c:when test="${characters.now_status.chara_flag == 0}">
