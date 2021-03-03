@@ -19,7 +19,7 @@
 <br /><br />
 
 <label for="chara_name">*登場人物名の読み方(全角カタカナ)</label><br />
-<input type="text" name="chara_name_read" value="${characters.chara_name_read}" pattern="[\u30A1-\u30F6]*" />
+<input type="text" name="chara_name_read" value="${characters.chara_name_read}" pattern="[\u30A1-\u30FC]*" />
 <br /><br />
 
 <label for="original">原典</label><br />
