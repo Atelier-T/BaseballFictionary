@@ -4,7 +4,7 @@
     <c:param name="content">
         <h2>登場人物情報　新規登録ページ</h2>
 
-        <form method="POST" action="<c:url value='/characters/create' />">
+        <form method="POST" action="<c:url value='/characters/create?id=${titles.title_id}' />">
             <c:import url="_form.jsp" />
         </form>
 

@@ -19,7 +19,7 @@
 <br /><br />
 
 <label for="chara_name">*登場人物名の読み方(全角カタカナ)</label><br />
-<input type="text" name="chara_name_read" value="${characters.chara_name_read}" pattern="^[ァ-ンヴー]+$ , [\u30A1-\u30FF]*" />
+<input type="text" name="chara_name_read" value="${characters.chara_name_read}" pattern="[\u30A1-\u30F6]*" />
 <br /><br />
 
 <label for="original">原典</label><br />
@@ -32,16 +32,16 @@
 
 <label for="chara_priority">*ストーリー上での重要度(決められない場合は「未分類」のままでもOK)</label><br />
 <select name="chara_priority">
-    <option value="${characters.chara_priority}"<c:if test="${characters.chara_priority == 0}"> selected</c:if>>未分類</option>
-    <option value="${characters.chara_priority}"<c:if test="${characters.chara_priority == 1}"> selected</c:if>>主役級</option>
-    <option value="${characters.chara_priority}"<c:if test="${characters.chara_priority == 2}"> selected</c:if>>準主役級</option>
-    <option value="${characters.chara_priority}"<c:if test="${characters.chara_priority == 3}"> selected</c:if>>レギュラー級</option>
-    <option value="${characters.chara_priority}"<c:if test="${characters.chara_priority == 4}"> selected</c:if>>準レギュラー級</option>
-    <option value="${characters.chara_priority}"<c:if test="${characters.chara_priority == 5}"> selected</c:if>>モブ</option>
+    <option value="0"<c:if test="0"> selected</c:if>>未分類</option>
+    <option value="1"<c:if test="1"> selected</c:if>>主役級</option>
+    <option value="2"<c:if test="2"> selected</c:if>>準主役級</option>
+    <option value="3"<c:if test="3"> selected</c:if>>レギュラー級</option>
+    <option value="4"<c:if test="4"> selected</c:if>>準レギュラー級</option>
+    <option value="5"<c:if test="5"> selected</c:if>>モブ</option>
 </select>
 <br /><br />
 
-<label for="birth_year">*誕生年度(半角数字)(整理番号扱いとしても良い)</label><br />
+<label for="birth_year">誕生年度(半角数字)(整理番号扱いとしても良い)</label><br />
 <input type="number" name="birth_year" value="${characters.birth_year}" pattern=^[0-9]+$ />
 <br /><br />
 
@@ -55,14 +55,16 @@
 
 <label for="appearance_flag">*未登場/登場フラグ(作者以外には登場済のみが表示)</label><br />
 <select name="appearance_flag">
-    <option value="${characters.appearance_flag}"<c:if test="${characters.appearance_flag == 0}"> selected</c:if>>未登場</option>
-    <option value="${characters.appearance_flag}"<c:if test="${characters.appearance_flag == 1}"> selected</c:if>>登場</option>
+    <option value="0"<c:if test="${characters.appearance_flag == 0}"> selected</c:if>>未登場</option>
+    <option value="1"<c:if test="${characters.appearance_flag == 1}"> selected</c:if>>登場</option>
 </select>
 <br /><br />
 
 <label for="chara_information">登場人物紹介</label><br />
 <textarea name="chara_information" rows="10" cols="50">${characters.chara_information}</textarea>
 <br /><br />
+
+<p>※選手としての細かいデータなどは後から設定します</p>
 
 <input type="hidden" name="_token" value="${_token}" />
 <button type="submit">登録</button>

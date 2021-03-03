@@ -19,7 +19,7 @@ public class TeamValidator {
 
     private static String _validateTeam(String team_name) {
         if(team_name == null || team_name.equals("")) {
-            return "リーグ名を入力してください。";
+            return "球団名を入力してください。";
             }
 
         return "";

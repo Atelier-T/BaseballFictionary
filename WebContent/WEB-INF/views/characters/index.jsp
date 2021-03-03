@@ -25,12 +25,12 @@
                 <c:forEach var="characters" items="${characters}" varStatus="status">
                     <tr class="row${status.count % 2}">
                         <td class="character_name">
-                            <a href="<c:url value='/characters/show?id=${characters.character_id}' />">
-                                <c:out value="${characters.character_name}" />
+                            <a href="<c:url value='/characters/show?id=${characters.chara_id}' />">
+                                <c:out value="${characters.chara_name}" />
                             </a>
                         </td>
                         <td class="player_name">
-                            <a href="<c:url value='/characters/show?id=${characters.character_id}' />">
+                            <a href="<c:url value='/characters/show?id=${characters.chara_id}' />">
                                 <c:if test="${characters.now_status.chara_flag == 0}">
                                     <c:out value="${characters.now_status.players.player_name}" />
                                 </c:if>
@@ -146,7 +146,7 @@
                                 </c:when>
                             </c:choose>
 
-                        <td class="character_action"><a href="<c:url value='/characters/show?id=${characters.character_id}' />">詳細を見る</a></td>
+                        <td class="character_action"><a href="<c:url value='/characters/show?id=${characters.chara_id}' />">詳細を見る</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
