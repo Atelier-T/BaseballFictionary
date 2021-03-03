@@ -11,6 +11,7 @@
 
         <c:if test="${sessionScope.login_user.user_id == titles.users.user_id}">
             <p><a href="<c:url value='/characters/new?id=${titles.title_id}' />">新規登場人物の登録</a></p>
+            <p><a href="<c:url value='/status/new?id=${titles.title_id}' />">新規年度別詳細情報の登録</a></p>
         </c:if>
 
         <table id="character_list">

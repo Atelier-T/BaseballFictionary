@@ -1,5 +1,7 @@
 package models;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -48,12 +50,12 @@ public class NowStatus {
     @JoinColumn(name = "chara_id", nullable = true)
     private Character characters;
 
-    //データの年度、もしくは分類番号
+    //データの年度
     @Column(name = "now_year", nullable = false, unique = true)
     private Integer now_year;
 
-    //キャラの分類　0.選手、監督、コーチ、オーナー、その他球団関係者　1.球団関係者以外(OB・OGなどの球界関係者、ファンなど)
-    @Column(name = "chara_flag", nullable = false, unique = true)
+    //人物分類　0.選手、監督、コーチ、オーナー、その他球団関係者　1.球団関係者以外(OB・OGなどの球界関係者、ファンなど)
+    @Column(name = "chara_flag", nullable = false)
     private Integer chara_flag;
 
     //キャラ分類0でのデータ
@@ -65,6 +67,12 @@ public class NowStatus {
     @ManyToOne
     @JoinColumn(name = "not_player_id", nullable = true)
     private Player not_players;
+
+    @Column(name = "created_at", nullable = false)
+    private Timestamp created_at;
+
+    @Column(name = "updated_at", nullable = false)
+    private Timestamp updated_at;
 
 
     public Integer getNow_id() {
@@ -113,5 +121,21 @@ public class NowStatus {
 
     public void setNot_players(Player not_players) {
         this.not_players = not_players;
+    }
+
+    public Timestamp getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(Timestamp created_at) {
+        this.created_at = created_at;
+    }
+
+    public Timestamp getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(Timestamp updated_at) {
+        this.updated_at = updated_at;
     }
 }
