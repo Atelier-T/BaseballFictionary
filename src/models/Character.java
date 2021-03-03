@@ -70,7 +70,7 @@ public class Character {
     @Column(name = "birth_place", length = 255, nullable = true)
     private String birth_place;
 
-    //登場話数
+    //初登場話
     @Column(name = "appearance", nullable = true)
     private Integer appearance;
 

@@ -30,7 +30,7 @@
 <input type="text" name="chara_model" value="${characters.chara_model}" />
 <br /><br />
 
-<label for="chara_priority">*ストーリー上での重要度(決められない場合は「未分類」のままでもOK)</label><br />
+<label for="chara_priority">*物語上での重要度(決められない場合は「未分類」のままでもOK)</label><br />
 <select name="chara_priority">
     <option value="0"<c:if test="0"> selected</c:if>>未分類</option>
     <option value="1"<c:if test="1"> selected</c:if>>主役級</option>
@@ -49,14 +49,14 @@
 <input type="text" name="birth_place" value="${characters.birth_place}" />
 <br /><br />
 
-<label for="appearance">登場話数(半角数字)</label><br />
+<label for="appearance">初登場話(半角数字)</label><br />
 <input type="number" name="appearance" value="${characters.appearance}" pattern=^[0-9]+$ />
 <br /><br />
 
-<label for="appearance_flag">*未登場/登場フラグ(作者以外には登場済のみが表示)</label><br />
+<label for="appearance_flag">*未登場/登場済(作者以外には登場済のみが表示)</label><br />
 <select name="appearance_flag">
     <option value="0"<c:if test="${characters.appearance_flag == 0}"> selected</c:if>>未登場</option>
-    <option value="1"<c:if test="${characters.appearance_flag == 1}"> selected</c:if>>登場</option>
+    <option value="1"<c:if test="${characters.appearance_flag == 1}"> selected</c:if>>登場済</option>
 </select>
 <br /><br />
 
