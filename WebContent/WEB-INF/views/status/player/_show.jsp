@@ -454,7 +454,13 @@
 
         <tr>
             <th>年俸</th>
-            <td><a href="<c:url value='/status/show?id=${now_status.now_id}' />"><c:out value="${now_status.players.salary}" />円</a></td>
+            <td>
+                <c:if test="${now_status.players.salary != null}">
+                    <a href="<c:url value='/status/show?id=${now_status.now_id}' />">
+                        <c:out value="${now_status.players.salary}" />円
+                    </a>
+                </c:if>
+            </td>
         </tr>
 
         <tr>

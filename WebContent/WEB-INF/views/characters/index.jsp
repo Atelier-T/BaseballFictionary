@@ -49,7 +49,7 @@
                         <td class="chara_type">
                             <c:choose>
                                 <c:when test="${characters.now_status.chara_flag == 0}">
-                                    <a href="<c:url value='/now_status/show?id=${characters.now_status.players.posision1}' />">
+                                    <a href="<c:url value='/status/show?id=${characters.now_status.now_id}' />">
                                         <c:choose>
                                             <c:when test="${characters.now_status.players.posision1 == 0}">
                                                 未分類
