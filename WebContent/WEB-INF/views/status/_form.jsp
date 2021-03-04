@@ -17,11 +17,14 @@
 <label for="chara_name">*対象の登場人物</label><br />
 <select name="chara_name">
 <c:forEach var="characters" items="${characters}" varStatus="status">
-    <option value="${characters.chara_id}"<c:if test="${characters.chara_name == characters}"> selected</c:if>>${characters.chara_name}</option>
+    <option value="${now_status.characters.chara_id}"<c:if test="${characters.chara_name == characters}"> selected</c:if>>${characters.chara_name}</option>
 </c:forEach>
 </select>
 <br /><br />
 
-<label for="now_year">*対象の年度(半角数字)(初期値は作中の現在年度)</label><br />
-<input type="number" name="now_year" value="${characters.original}" pattern=^[0-9]+$ placeholder="${characters.titles.year + characters.titles.elapsed_year}"/>
+<label for="now_year">*対象の年度(半角数字)</label><br />
+<input type="number" name="now_year" value="${now_status.now_year}" pattern=^[0-9]+$ list="year_list" /><br />
+    <datalist id="year_list">
+        <option value="${titles.year + titles.elapsed_year}">現在の作中年度</option>
+    </datalist>
 <br /><br />

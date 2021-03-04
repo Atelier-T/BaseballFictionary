@@ -32,18 +32,18 @@
 
 <label for="chara_priority">*物語上での重要度(決められない場合は「未分類」のままでもOK)</label><br />
 <select name="chara_priority">
-    <option value="0"<c:if test="0"> selected</c:if>>未分類</option>
-    <option value="1"<c:if test="1"> selected</c:if>>主役級</option>
-    <option value="2"<c:if test="2"> selected</c:if>>準主役級</option>
-    <option value="3"<c:if test="3"> selected</c:if>>レギュラー級</option>
-    <option value="4"<c:if test="4"> selected</c:if>>準レギュラー級</option>
-    <option value="5"<c:if test="5"> selected</c:if>>モブ</option>
+    <option value="0"<c:if test="characters.chara_priority == 0"> selected</c:if>>未分類</option>
+    <option value="1"<c:if test="characters.chara_priority == 1"> selected</c:if>>主役級</option>
+    <option value="2"<c:if test="characters.chara_priority == 2"> selected</c:if>>準主役級</option>
+    <option value="3"<c:if test="characters.chara_priority == 3"> selected</c:if>>レギュラー級</option>
+    <option value="4"<c:if test="characters.chara_priority == 4"> selected</c:if>>準レギュラー級</option>
+    <option value="5"<c:if test="characters.chara_priority == 5"> selected</c:if>>モブ</option>
 </select>
 <br /><br />
 
 <label for="birth_year">誕生年度(年数のみ、半角数字)</label><br />
 <label for="birth_year">※これと作品情報の「作中年度」「経過年数」から、登場人物の年齢を算出します。</label><br />
-<input type="number" name="birth_year" value="${characters.birth_year}" pattern=^[0-9]+$ />
+<input type="number" name="birth_year" value="${characters.birth_year}" pattern="^[0-9]+$" />
 <br /><br />
 
 <label for="birth_place">出身地</label><br />
@@ -51,7 +51,7 @@
 <br /><br />
 
 <label for="appearance">初登場話(数値のみ、半角数字)</label><br />
-<input type="number" name="appearance" value="${characters.appearance}" pattern=^[0-9]+$ />
+<input type="number" name="appearance" value="${characters.appearance}" pattern="^[0-9]+$" />
 <br /><br />
 
 <label for="appearance_flag">*未登場/登場済(作者以外には登場済のみが表示)</label><br />
