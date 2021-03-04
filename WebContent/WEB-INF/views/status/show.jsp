@@ -17,19 +17,23 @@
                     <c:otherwise>
                         <h2><a href="<c:url value='/characters/show?id=${now_status.now_id}' />"><c:out value="${now_status.characters.chara_name}" /></a>の<a href="<c:url value='/status/year/show?id=${now_status.now_year}' />"><c:out value="${now_status.now_year}" />年度</a>　詳細情報</h2>
 
-                    <c:choose>
-                        <c:when test="${now_status.characters.now_status.chara_flag == 0}">
+                        <c:if test="${sessionScope.login_user.user_id == now_status.characters.titles.users.user_id}">
+                            <p><a href="<c:url value="/status/edit?id=${now_status.now_id}" />">詳細情報を編集する</a></p>
+                        </c:if>
 
-                            <c:import url='player/_show.jsp' />
+                        <c:choose>
+                            <c:when test="${now_status.characters.now_status.chara_flag == 0}">
 
-                        </c:when>
+                                <c:import url='player/_show.jsp' />
 
-                        <c:when test="${now_status.characters.now_status.chara_flag == 1}">
+                            </c:when>
 
-                            <c:import url='not_player/_show.jsp' />
+                            <c:when test="${now_status.characters.now_status.chara_flag == 1}">
 
-                        </c:when>
-                    </c:choose>
+                                <c:import url='not_player/_show.jsp' />
+
+                            </c:when>
+                        </c:choose>
 
 
                         <c:if test="${sessionScope.login_user.user_id == now_status.characters.titles.users.user_id}">
