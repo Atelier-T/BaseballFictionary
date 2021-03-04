@@ -17,7 +17,7 @@
 <label for="chara_name">*対象の登場人物</label><br />
 <select name="chara_name">
 <c:forEach var="characters" items="${characters}" varStatus="status">
-    <option value="${characters.chara_id}"<c:if test="${characters.chara_name == characters}"> selected</c:if>>${characters.chara_name}</option>
+    <option value="${characters.chara_id}"<c:if test="${characters.chara_id == now_status.characters.chara_id}"> selected</c:if>>${characters.chara_name}</option>
 </c:forEach>
 </select>
 <br /><br />

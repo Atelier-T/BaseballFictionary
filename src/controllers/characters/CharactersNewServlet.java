@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Character;
+import models.Character_list;
 import models.Title;
 import utils.DBUtil;
 
@@ -40,7 +40,7 @@ public class CharactersNewServlet extends HttpServlet {
 
         request.setAttribute("titles", t);
         request.setAttribute("_token", request.getSession().getId());
-        request.setAttribute("characters", new Character());
+        request.setAttribute("characters", new Character_list());
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/characters/new.jsp");
         rd.forward(request, response);

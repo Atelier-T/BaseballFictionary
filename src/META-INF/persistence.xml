@@ -4,7 +4,7 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>models.User</class>
 		<class>models.Title</class>
-		<class>models.Character</class>
+		<class>models.Character_list</class>
 		<class>models.Team</class>
 		<class>models.League</class>
 		<class>models.Player</class>

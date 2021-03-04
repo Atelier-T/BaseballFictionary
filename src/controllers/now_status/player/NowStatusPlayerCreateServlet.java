@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Character;
+import models.Character_list;
 import models.NowStatus;
 import models.Player;
 import models.Team;
@@ -47,7 +47,7 @@ public class NowStatusPlayerCreateServlet extends HttpServlet {
             NowStatus n = new NowStatus();
             Player p = new Player();
 
-            Character c = em.find(Character.class, Integer.parseInt(request.getParameter("chara_name")));
+            Character_list c = em.find(Character_list.class, Integer.parseInt(request.getParameter("chara_name")));
             Team t = em.find(Team.class, Integer.parseInt(request.getParameter("team_name")));
 
             n.setCharacters(c);
@@ -64,7 +64,7 @@ public class NowStatusPlayerCreateServlet extends HttpServlet {
 
             List<String> errors = NowStatusValidator.validate(n, c, true);
             if(errors.size() > 0) {
-                List<Character> characters = em.createNamedQuery("getMyAllCharacters", Character.class)
+                List<Character_list> characters = em.createNamedQuery("getMyAllCharacters", Character_list.class)
                         .setParameter("titles", titles)
                         .getResultList();
 

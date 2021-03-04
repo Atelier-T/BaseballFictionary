@@ -16,20 +16,22 @@ import models.NowStatus;
 import models.Player;
 import models.Team;
 import models.Title;
+import models.User;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class NowStatusPlayerNewServlet
+ * Servlet implementation class NowStatusPlayerEditServlet
  */
-@WebServlet("/status/player/new")
-public class NowStatusPlayerNewServlet extends HttpServlet {
+@WebServlet("/status/player/edit")
+public class NowStatusPlayerEditServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NowStatusPlayerNewServlet() {
+    public NowStatusPlayerEditServlet() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -38,7 +40,11 @@ public class NowStatusPlayerNewServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
-        Title t = em.find(Title.class, Integer.parseInt(request.getParameter("id")));
+        NowStatus n = em.find(NowStatus.class, Integer.parseInt(request.getParameter("id")));
+
+        Player p = n.getPlayers();
+
+        Title t = n.getCharacters().getTitles();
 
         List<Character_list> characters = em.createNamedQuery("getMyAllCharacters", Character_list.class)
                 .setParameter("titles", t)
@@ -48,16 +54,20 @@ public class NowStatusPlayerNewServlet extends HttpServlet {
                 .setParameter("titles", t)
                 .getResultList();
 
+        User login_user = (User)request.getSession().getAttribute("login_user");
+
         em.close();
 
-        request.setAttribute("characters", characters);
-        request.setAttribute("teams", teams);
-        request.setAttribute("titles", t);
-        request.setAttribute("_token", request.getSession().getId());
-        request.setAttribute("now_status", new NowStatus());
-        request.setAttribute("players", new Player());
+        if(n != null && login_user.getUser_id() == n.getCharacters().getTitles().getUsers().getUser_id()) {
+            request.setAttribute("now_status", n);
+            request.setAttribute("players", p);
+            request.setAttribute("characters", characters);
+            request.setAttribute("teams", teams);
+            request.setAttribute("_token", request.getSession().getId());
+            request.getSession().setAttribute("now_id", n.getNow_id());
+        }
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/status/player/new.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/status/player/edit.jsp");
         rd.forward(request, response);
     }
 

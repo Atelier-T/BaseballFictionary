@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Character;
+import models.Character_list;
 import models.validators.CharacterValidator;
 import utils.DBUtil;
 
@@ -38,7 +38,7 @@ public class CharactersUpdateServlet extends HttpServlet {
         if(_token != null && _token.equals(request.getSession().getId())) {
             EntityManager em = DBUtil.createEntityManager();
 
-            Character c = em.find(Character.class, (Integer)(request.getSession().getAttribute("chara_id")));
+            Character_list c = em.find(Character_list.class, (Integer)(request.getSession().getAttribute("chara_id")));
 
             c.setChara_name(request.getParameter("chara_name"));
             c.setChara_name_read(request.getParameter("chara_name_read"));

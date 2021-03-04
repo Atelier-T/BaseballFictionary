@@ -3,10 +3,10 @@ package models.validators;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.Character;
+import models.Character_list;
 
 public class CharacterValidator {
-    public static List<String> validate(Character c) {
+    public static List<String> validate(Character_list c) {
         List<String> errors = new ArrayList<String>();
 
         String chara_name_error = _validateCharaName(c.getChara_name());

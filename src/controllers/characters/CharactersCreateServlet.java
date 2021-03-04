@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Character;
+import models.Character_list;
 import models.Title;
 import models.validators.CharacterValidator;
 import utils.DBUtil;
@@ -41,7 +41,7 @@ public class CharactersCreateServlet extends HttpServlet {
 
             Title t = em.find(Title.class, Integer.parseInt(request.getParameter("id")));
 
-            Character c = new Character();
+            Character_list c = new Character_list();
 
             request.getSession().setAttribute("title_id", t);
 

@@ -18,16 +18,16 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(
         name = "getMyAllCharacters",
-        query = "SELECT c FROM Character AS c WHERE c.titles = :titles ORDER BY c.chara_id DESC"
+        query = "SELECT c FROM Character_list AS c WHERE c.titles = :titles ORDER BY c.chara_id DESC"
     ),
     @NamedQuery(
         name = "getMyCharactersCount",
-        query = "SELECT COUNT(c) FROM Character AS c WHERE c.titles = :titles"
+        query = "SELECT COUNT(c) FROM Character_list AS c WHERE c.titles = :titles"
     )
 })
 
 @Entity
-public class Character {
+public class Character_list {
     @Id
     @Column(name = "chara_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

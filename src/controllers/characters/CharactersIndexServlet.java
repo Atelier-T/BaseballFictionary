@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Character;
+import models.Character_list;
 import models.Title;
 import utils.DBUtil;
 
@@ -42,7 +42,7 @@ public class CharactersIndexServlet extends HttpServlet {
             page = Integer.parseInt(request.getParameter("page"));
         } catch(NumberFormatException e) { }
 
-        List<Character> characters = em.createNamedQuery("getMyAllCharacters", Character.class)
+        List<Character_list> characters = em.createNamedQuery("getMyAllCharacters", Character_list.class)
                                 .setParameter("titles", t)
                                 .setFirstResult(15 * (page - 1))
                                 .setMaxResults(15)

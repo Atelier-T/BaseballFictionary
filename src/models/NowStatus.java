@@ -52,7 +52,7 @@ public class NowStatus {
     //対象キャラクター
     @ManyToOne
     @JoinColumn(name = "chara_id", nullable = false)
-    private Character characters;
+    private Character_list characters;
 
     //データの年度
     @Column(name = "now_year", nullable = false)
@@ -85,11 +85,11 @@ public class NowStatus {
         this.now_id = now_id;
     }
 
-    public Character getCharacters() {
+    public Character_list getCharacters() {
         return characters;
     }
 
-    public void setCharacters(Character characters) {
+    public void setCharacters(Character_list characters) {
         this.characters = characters;
     }
 
