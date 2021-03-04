@@ -39,8 +39,10 @@
                                             </c:when>
                                             <c:when test="${characters.now_status != null}">
                                                 <a href="<c:url value='/status/show?id=${characters.now_status.now_id}' />">
-                                                    <c:out value="${characters.titles.year + characters.titles.elapsed_year}" />年度
-                                                    (<c:out value="${characters.titles.year + characters.titles.elapsed_year - characters.birth_year}" />歳時、
+                                                    <c:out value="${characters.titles.year + characters.titles.elapsed_year}" />年度 (
+                                                    <c:if test="${characters.birth_year != null && characters.titles.elapsed_year != null && characters.birth_year != null}">
+                                                        <c:out value="${characters.titles.year + characters.titles.elapsed_year - characters.birth_year}" />歳時、
+                                                    </c:if>
                                                     <c:choose>
                                                         <c:when test="${characters.now_status.chara_flag == 0}">
                                                             <c:choose>
