@@ -20,7 +20,7 @@
                                 </tr>
                                 <tr>
                                     <th>登場人物名(読み方)</th>
-                                    <td><a href="<c:url value='/characters/show?id=${characters.chara_id}' />"><c:out value="${characters.chara_name}" /></a></td>
+                                    <td><a href="<c:url value='/characters/show?id=${characters.chara_id}' />"><c:out value="${characters.chara_name_read}" /></a></td>
                                 </tr>
                                 <tr>
                                     <th>作品名</th>
@@ -33,9 +33,9 @@
                                             <c:when test="${characters.now_status == null}">
                                             </c:when>
                                             <c:when test="${characters.now_status != null}">
-                                                <a href="<c:url value='/titles/show?id=${characters.now_status.now_id}' />">
-                                                    <c:out value="${characters.titles.year + characters.titles.elapsed_year - characters.birth_year}" />歳時
-                                                    (
+                                                <a href="<c:url value='/status/show?id=${characters.now_status.now_id}' />">
+                                                    <c:out value="${characters.titles.year + characters.titles.elapsed_year}" />年度
+                                                    (<c:out value="${characters.titles.year + characters.titles.elapsed_year - characters.birth_year}" />歳時、
                                                     <c:choose>
                                                         <c:when test="${characters.now_status.chara_flag == 0}">
                                                             <c:choose>

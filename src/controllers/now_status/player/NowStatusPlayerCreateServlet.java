@@ -142,6 +142,15 @@ public class NowStatusPlayerCreateServlet extends HttpServlet {
                 em.persist(n);
                 em.getTransaction().commit();
 
+
+                if(titles.getYear() + titles.getElapsed_year() == n.getNow_year()){
+                    c.setNow_status(n);
+
+                    em.getTransaction().begin();
+                    em.persist(c);
+                    em.getTransaction().commit();
+                }
+
                 em.close();
                 request.getSession().setAttribute("flush", "登録が完了しました。");
 
