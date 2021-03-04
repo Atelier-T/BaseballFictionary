@@ -3,6 +3,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
+        <c:if test="${flush != null}">
+            <div id="flush_success">
+                <c:out value="${flush}"></c:out>
+            </div>
+        </c:if>
         <c:choose>
             <c:when test="${characters != null}">
                 <c:choose>
@@ -10,7 +15,7 @@
                         <h2>未登場人物です。作者以外には表示できません。</h2>
                     </c:when>
                     <c:otherwise>
-                        <h2>登場人物情報　詳細</h2>
+                        <h2><a href="<c:url value='/characters/show?id=${characters.chara_id}' />"><c:out value="${characters.chara_name}" /></a>の登場人物情報　詳細</h2>
 
                         <table>
                             <tbody>

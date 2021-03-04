@@ -92,15 +92,15 @@ public class NowStatusPlayerCreateServlet extends HttpServlet {
 
                 p.setNow_status(n);
 
-                if(request.getParameter("player_name") != null){
-                    p.setPlayer_name(request.getParameter("player_name"));
-                } else {
+                if(request.getParameter("player_name") == null || request.getParameter("player_name").equals("")){
                     p.setPlayer_name(c.getChara_name());
-                }
-                if(request.getParameter("player_name_read") != null){
-                    p.setPlayer_name_read(request.getParameter("player_name_read"));
                 } else {
+                    p.setPlayer_name(request.getParameter("player_name"));
+                }
+                if(request.getParameter("player_name_read") == null || request.getParameter("player_name_read").equals("")){
                     p.setPlayer_name_read(c.getChara_name_read());
+                } else {
+                    p.setPlayer_name_read(request.getParameter("player_name_read"));
                 }
 
                 p.setTeams(t);
@@ -154,7 +154,7 @@ public class NowStatusPlayerCreateServlet extends HttpServlet {
                 em.close();
                 request.getSession().setAttribute("flush", "登録が完了しました。");
 
-                response.sendRedirect(request.getContextPath() + "/characters/index?id=" + titles.getTitle_id());
+                response.sendRedirect(request.getContextPath() + "/characters/show?id=" + c.getChara_id());
             }
         }
     }

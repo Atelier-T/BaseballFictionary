@@ -55,7 +55,7 @@ public class NowStatus {
     private Character characters;
 
     //データの年度
-    @Column(name = "now_year", nullable = false, unique = true)
+    @Column(name = "now_year", nullable = false)
     private Integer now_year;
 
     //人物分類　0.選手、監督、コーチ、オーナー、その他球団関係者　1.球団関係者以外(OB・OGなどの球界関係者、ファンなど)
