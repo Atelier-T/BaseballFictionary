@@ -25,11 +25,11 @@ public class Player {
     private NowStatus now_status;
 
     //登録名　nullならchara_nameを自動で取得
-    @Column(name = "player_name", length = 255, nullable = true)
+    @Column(name = "player_name", length = 255, nullable = false)
     private String player_name;
 
     //登録名の読み方　player_nameがnullならchara_name_readを自動で取得
-    @Column(name = "player_name_read", length = 255, nullable = true)
+    @Column(name = "player_name_read", length = 255, nullable = false)
     private String player_name_read;
 
     //所属球団

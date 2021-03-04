@@ -35,6 +35,10 @@ import javax.persistence.Table;
     @NamedQuery(
         name = "getCharactersAllNowStatus",
         query = "SELECT n FROM NowStatus AS n WHERE n.characters = :characters ORDER BY n.now_id DESC"
+    ),
+    @NamedQuery(
+        name = "checkNow_year",
+        query = "SELECT COUNT(n) FROM NowStatus AS n WHERE n.characters = :characters and n.now_year = :now_year"
     )
 })
 
@@ -47,7 +51,7 @@ public class NowStatus {
 
     //対象キャラクター
     @ManyToOne
-    @JoinColumn(name = "chara_id", nullable = true)
+    @JoinColumn(name = "chara_id", nullable = false)
     private Character characters;
 
     //データの年度
@@ -58,15 +62,13 @@ public class NowStatus {
     @Column(name = "chara_flag", nullable = false)
     private Integer chara_flag;
 
-    //キャラ分類0でのデータ
     @ManyToOne
     @JoinColumn(name = "player_id", nullable = true)
     private Player players;
 
-    //キャラ分類1でのデータ
     @ManyToOne
     @JoinColumn(name = "not_player_id", nullable = true)
-    private Player not_players;
+    private NotPlayer not_players;
 
     @Column(name = "created_at", nullable = false)
     private Timestamp created_at;
@@ -115,11 +117,11 @@ public class NowStatus {
         this.players = players;
     }
 
-    public Player getNot_players() {
+    public NotPlayer getNot_players() {
         return not_players;
     }
 
-    public void setNot_players(Player not_players) {
+    public void setNot_players(NotPlayer not_players) {
         this.not_players = not_players;
     }
 

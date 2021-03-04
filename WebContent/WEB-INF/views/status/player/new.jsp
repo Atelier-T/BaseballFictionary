@@ -6,7 +6,7 @@
 
         <p><a href="<c:url value='/status/new?id=${titles.title_id}' />">前に戻る</a></p>
 
-        <form method="POST" action="<c:url value='/status/players/create?id=${titles.title_id}' />">
+        <form method="POST" action="<c:url value='/status/player/create?id=${titles.title_id}' />">
             <c:import url="../_form.jsp" />
             <c:import url="_form.jsp" />
         </form>

@@ -35,9 +35,14 @@ public class NowStatusNewServlet extends HttpServlet {
 
         Title t = em.find(Title.class, Integer.parseInt(request.getParameter("id")));
 
+        long characters_check = (long)em.createNamedQuery("getMyCharactersCount", Long.class)
+                                            .setParameter("titles", t)
+                                            .getSingleResult();
+
         em.close();
 
         request.setAttribute("titles", t);
+        request.setAttribute("characters_check", characters_check);
         request.setAttribute("_token", request.getSession().getId());
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/status/new.jsp");

@@ -25,11 +25,11 @@ public class NotPlayer {
     private NowStatus now_status;
 
     //登録名　nullならchara_nameを自動で取得
-    @Column(name = "not_player_name", length = 255, nullable = true)
+    @Column(name = "not_player_name", length = 255, nullable = false)
     private String not_player_name;
 
     //登録名の読み方　not_player_nameがnullならchara_name_readを自動で取得
-    @Column(name = "not_player_name_read", length = 255, nullable = true)
+    @Column(name = "not_player_name_read", length = 255, nullable = false)
     private String not_player_name_read;
 
     //0.未分類　1.OB・OG　2.ファン　3.選手親族　4.審判　5.コミッショナー　6.その他球界関係者　7.その他一般人

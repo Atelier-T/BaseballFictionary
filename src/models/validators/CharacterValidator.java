@@ -9,14 +9,14 @@ public class CharacterValidator {
     public static List<String> validate(Character c) {
         List<String> errors = new ArrayList<String>();
 
-        String character_name_error = _validateCharaName(c.getChara_name());
-        if(!character_name_error.equals("")) {
-            errors.add(character_name_error);
+        String chara_name_error = _validateCharaName(c.getChara_name());
+        if(!chara_name_error.equals("")) {
+            errors.add(chara_name_error);
         }
 
-        String character_name_read_error = _validateCharaNameRead(c.getChara_name_read());
-        if(!character_name_read_error.equals("")) {
-            errors.add(character_name_read_error);
+        String chara_name_read_error = _validateCharaNameRead(c.getChara_name_read());
+        if(!chara_name_read_error.equals("")) {
+            errors.add(chara_name_read_error);
         }
 
         return errors;
