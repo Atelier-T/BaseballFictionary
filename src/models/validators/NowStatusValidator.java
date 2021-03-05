@@ -24,6 +24,16 @@ public class NowStatusValidator {
 
         return errors;
     }
+    public static List<String> validate_year(NowStatus n) {
+        List<String> errors = new ArrayList<String>();
+
+        String now_year_null = _validateNow_year(n.getNow_year());
+        if(!now_year_null.equals("")) {
+            errors.add(now_year_null);
+        }
+
+        return errors;
+    }
 
     private static String validateNow_year(Integer now_year, Character_list c, Boolean now_yearCheckFlag) {
         if(now_yearCheckFlag) {
