@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import models.Character_list;
 import models.Title;
+import models.User;
 import utils.DBUtil;
 
 /**
@@ -37,6 +38,8 @@ public class CharactersIndexServlet extends HttpServlet {
 
         Title t = em.find(Title.class, Integer.parseInt(request.getParameter("id")));
 
+        User login_user = (User)request.getSession().getAttribute("login_user");
+
         int page = 1;
         try{
             page = Integer.parseInt(request.getParameter("page"));
@@ -52,11 +55,28 @@ public class CharactersIndexServlet extends HttpServlet {
                                       .setParameter("titles", t)
                                       .getSingleResult();
 
+        List<Character_list> characters_read = em.createNamedQuery("getMyAllCharactersForReaders", Character_list.class)
+                .setParameter("titles", t)
+                .setFirstResult(15 * (page - 1))
+                .setMaxResults(15)
+                .getResultList();
+
+        long characters_count_read = (long)em.createNamedQuery("getMyCharactersCountForReaders", Long.class)
+                      .setParameter("titles", t)
+                      .getSingleResult();
+
         em.close();
 
         request.setAttribute("page", page);
-        request.setAttribute("characters", characters);
-        request.setAttribute("characters_count", characters_count);
+        request.setAttribute("characters", characters_read);
+        request.setAttribute("characters_count", characters_count_read);
+        try{
+            if(login_user.getUser_id() == t.getUsers().getUser_id()) {
+                request.setAttribute("characters", characters);
+                request.setAttribute("characters_count", characters_count);
+            }
+        } catch(Exception e) { }
+
         request.setAttribute("titles", t);
         request.setAttribute("_token", request.getSession().getId());
 

@@ -46,9 +46,6 @@
         <c:if test="${sessionScope.login_user != null}">
             <p><a href="<c:url value='/titles/new' />">新規作品の登録</a></p>
         </c:if>
-        <c:if test="${sessionScope.login_user == null}">
-            <p><a href="<c:url value='/titles/new' />">新規作品の登録(ログインページへ)</a></p>
-        </c:if>
 
     </c:param>
 </c:import>

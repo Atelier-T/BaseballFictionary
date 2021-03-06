@@ -23,6 +23,14 @@ import javax.persistence.Table;
     @NamedQuery(
         name = "getMyCharactersCount",
         query = "SELECT COUNT(c) FROM Character_list AS c WHERE c.titles = :titles"
+    ),
+    @NamedQuery(
+        name = "getMyAllCharactersForReaders",
+        query = "SELECT c FROM Character_list AS c WHERE c.titles = :titles and c.appearance_flag = 1 ORDER BY c.chara_id DESC"
+    ),
+    @NamedQuery(
+        name = "getMyCharactersCountForReaders",
+        query = "SELECT COUNT(c) FROM Character_list AS c WHERE c.titles = :titles and c.appearance_flag = 1"
     )
 })
 
