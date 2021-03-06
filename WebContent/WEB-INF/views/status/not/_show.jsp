@@ -18,28 +18,28 @@
             <th>人物分類1</th>
             <td><a href="<c:url value='/status/show?id=${now_status.now_id}' />">
                 <c:choose>
-                    <c:when test="${now_status.not_players.posision1 == 0}">
+                    <c:when test="${now_status.not_players.chara_type1 == 0}">
                         未分類
                     </c:when>
-                    <c:when test="${now_status.not_players.posision1 == 1}">
+                    <c:when test="${now_status.not_players.chara_type1 == 1}">
                         OB・OG
                     </c:when>
-                    <c:when test="${now_status.not_players.posision1 == 2}">
+                    <c:when test="${now_status.not_players.chara_type1 == 2}">
                         ファン
                     </c:when>
-                    <c:when test="${now_status.not_players.posision1 == 3}">
+                    <c:when test="${now_status.not_players.chara_type1 == 3}">
                         選手親族
                     </c:when>
-                    <c:when test="${now_status.not_players.posision1 == 4}">
+                    <c:when test="${now_status.not_players.chara_type1 == 4}">
                         審判
                     </c:when>
-                    <c:when test="${now_status.not_players.posision1 == 5}">
+                    <c:when test="${now_status.not_players.chara_type1 == 5}">
                         コミッショナー
                     </c:when>
-                    <c:when test="${now_status.not_players.posision1 == 6}">
+                    <c:when test="${now_status.not_players.chara_type1 == 6}">
                         その他球界関係者
                     </c:when>
-                    <c:when test="${now_status.not_players.posision1 == 7}">
+                    <c:when test="${now_status.not_players.chara_type1 == 7}">
                         その他一般人
                     </c:when>
                 </c:choose>
@@ -50,28 +50,28 @@
             <th>人物分類2</th>
             <td><a href="<c:url value='/status/show?id=${now_status.now_id}' />">
                 <c:choose>
-                    <c:when test="${now_status.not_players.posision2 == 0}">
+                    <c:when test="${now_status.not_players.chara_type2 == 0}">
                         未分類
                     </c:when>
-                    <c:when test="${now_status.not_players.posision2 == 1}">
+                    <c:when test="${now_status.not_players.chara_type2 == 1}">
                         OB・OG
                     </c:when>
-                    <c:when test="${now_status.not_players.posision2 == 2}">
+                    <c:when test="${now_status.not_players.chara_type2 == 2}">
                         ファン
                     </c:when>
-                    <c:when test="${now_status.not_players.posision2 == 3}">
+                    <c:when test="${now_status.not_players.chara_type2 == 3}">
                         選手親族
                     </c:when>
-                    <c:when test="${now_status.not_players.posision2 == 4}">
+                    <c:when test="${now_status.not_players.chara_type2 == 4}">
                         審判
                     </c:when>
-                    <c:when test="${now_status.not_players.posision2 == 5}">
+                    <c:when test="${now_status.not_players.chara_type2 == 5}">
                         コミッショナー
                     </c:when>
-                    <c:when test="${now_status.not_players.posision2 == 6}">
+                    <c:when test="${now_status.not_players.chara_type2 == 6}">
                         その他球界関係者
                     </c:when>
-                    <c:when test="${now_status.not_players.posision2 == 7}">
+                    <c:when test="${now_status.not_players.chara_type2 == 7}">
                         その他一般人
                     </c:when>
                 </c:choose>
@@ -82,28 +82,28 @@
             <th>人物分類3</th>
             <td><a href="<c:url value='/status/show?id=${now_status.now_id}' />">
                 <c:choose>
-                    <c:when test="${now_status.not_players.posision3 == 0}">
+                    <c:when test="${now_status.not_players.chara_type3 == 0}">
                         未分類
                     </c:when>
-                    <c:when test="${now_status.not_players.posision3 == 1}">
+                    <c:when test="${now_status.not_players.chara_type3 == 1}">
                         OB・OG
                     </c:when>
-                    <c:when test="${now_status.not_players.posision3 == 2}">
+                    <c:when test="${now_status.not_players.chara_type3 == 2}">
                         ファン
                     </c:when>
-                    <c:when test="${now_status.not_players.posision3 == 3}">
+                    <c:when test="${now_status.not_players.chara_type3 == 3}">
                         選手親族
                     </c:when>
-                    <c:when test="${now_status.not_players.posision3 == 4}">
+                    <c:when test="${now_status.not_players.chara_type3 == 4}">
                         審判
                     </c:when>
-                    <c:when test="${now_status.not_players.posision3 == 5}">
+                    <c:when test="${now_status.not_players.chara_type3 == 5}">
                         コミッショナー
                     </c:when>
-                    <c:when test="${now_status.not_players.posision3 == 6}">
+                    <c:when test="${now_status.not_players.chara_type3 == 6}">
                         その他球界関係者
                     </c:when>
-                    <c:when test="${now_status.not_players.posision3 == 7}">
+                    <c:when test="${now_status.not_players.chara_type3 == 7}">
                         その他一般人
                     </c:when>
                 </c:choose>
@@ -112,12 +112,12 @@
 
         <tr>
             <th>人物分類　詳細</th>
-            <td><a href="<c:url value='/status/show?id=${now_status.now_id}' />"><c:out value="${now_status.not_players.posision_detail}" /></a></td>
+            <td><a href="<c:url value='/status/show?id=${now_status.now_id}' />"><c:out value="${now_status.not_players.chara_type_detail}" /></a></td>
         </tr>
 
         <tr>
             <th>その他補足情報</th>
-            <td><a href="<c:url value='/status/show?id=${now_status.now_id}' />"><c:out value="${now_status.not_players.posision_detail}" /></a></td>
+            <td><a href="<c:url value='/status/show?id=${now_status.now_id}' />"><c:out value="${now_status.not_players.chara_type_detail}" /></a></td>
         </tr>
 
         <tr>

@@ -195,3 +195,11 @@ table#team_list .league_name {
 table#team_list .league_action {
     width: 40%;
 }
+
+#status_change {
+    background-color: #eeeeee;
+}
+
+button.status_change {
+    background-color: #ffffff;
+}

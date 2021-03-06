@@ -46,6 +46,7 @@
                                     <c:out value="${characters.now_status.players.teams.team_name}" />
                                 </a>
                             </c:if>
+                        </td>
                         <td class="chara_type">
                             <c:choose>
                                 <c:when test="${characters.now_status.chara_flag == 0}">
@@ -146,6 +147,7 @@
                                     </a>
                                 </c:when>
                             </c:choose>
+                        </td>
 
                         <td class="character_action"><a href="<c:url value='/characters/show?id=${characters.chara_id}' />">詳細を見る</a></td>
                     </tr>
