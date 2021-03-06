@@ -39,7 +39,7 @@
                                             </c:when>
                                             <c:when test="${characters.now_status != null}">
                                                 <a href="<c:url value='/status/show?id=${characters.now_status.now_id}' />">
-                                                    <c:out value="${characters.titles.year + characters.titles.elapsed_year}" />年度 (
+                                                    <c:out value="${characters.now_status.now_year}" />年度 (
                                                     <c:if test="${characters.birth_year != null && characters.titles.elapsed_year != null && characters.birth_year != null}">
                                                         <c:out value="${characters.titles.year + characters.titles.elapsed_year - characters.birth_year}" />歳時、
                                                     </c:if>
@@ -266,116 +266,118 @@
                         <table id="status_list">
                             <tbody>
                                 <tr>
-                                    <th class="chara_name">年度</th>
-                                    <th class="player_name">人物分類</th>
+                                    <th class="now_year">年度</th>
+                                    <th class="chara_type">人物分類</th>
                                 </tr>
                                 <c:forEach var="now_status" items="${now_status}" varStatus="status">
-                                <td class="now_year">
-                                    <a href="<c:url value='/status/show?id=${characters.now_status.now_id}' />">
-                                    <c:out value="${characters.now_status.now_year}" />
-                                    </a>
-                                </td>
-                                <td class="chara_type">
-                                    <c:choose>
-                                        <c:when test="${characters.now_status.chara_flag == 0}">
-                                            <a href="<c:url value='/status/show?id=${characters.now_status.now_id}' />">
-                                                <c:choose>
-                                                    <c:when test="${characters.now_status.players.posision1 == 0}">
+                                <tr>
+                                    <td class="now_year">
+                                        <a href="<c:url value='/status/show?id=${now_status.now_id}' />">
+                                        <c:out value="${now_status.now_year}" />
+                                        </a>
+                                    </td>
+                                    <td class="chara_type">
+                                        <c:choose>
+                                            <c:when test="${now_status.chara_flag == 0}">
+                                                <a href="<c:url value='/status/show?id=${now_status.now_id}' />">
+                                                    <c:choose>
+                                                        <c:when test="${now_status.players.posision1 == 0}">
+                                                            未分類
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 1}">
+                                                            投手
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 2}">
+                                                            捕手
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 3}">
+                                                            内野手
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 4}">
+                                                            外野手
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 5}">
+                                                            監督
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 6}">
+                                                            ヘッドコーチ
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 7}">
+                                                            投手コーチ
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 8}">
+                                                            打撃コーチ
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 9}">
+                                                            走塁コーチ
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 10}">
+                                                            バッテリーコーチ
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 11}">
+                                                            内野守備コーチ
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 12}">
+                                                            外野守備コーチ
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 13}">
+                                                            トレーナー
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 14}">
+                                                            打撃投手
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 15}">
+                                                            チームドクター
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 16}">
+                                                            通訳
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 17}">
+                                                            オーナー
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 18}">
+                                                            球団幹部
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 19}">
+                                                            マスコット
+                                                        </c:when>
+                                                        <c:when test="${now_status.players.posision1 == 20}">
+                                                            その他球団職員
+                                                        </c:when>
+                                                    </c:choose>
+                                                </a>
+                                            </c:when>
+                                            <c:when test="${now_status.chara_flag == 1}">
+                                                <a href="<c:url value='/now_status/show?id=${now_status.not_players.posision1}' />">
+                                                    <c:when test="${now_status.not_players.posision1 == 0}">
                                                         未分類
                                                     </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 1}">
-                                                        投手
+                                                    <c:when test="${now_status.not_players.posision1 == 1}">
+                                                        OB・OG
                                                     </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 2}">
-                                                        捕手
+                                                    <c:when test="${now_status.not_players.posision1 == 2}">
+                                                        ファン
                                                     </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 3}">
-                                                        内野手
+                                                    <c:when test="${now_status.not_players.posision1 == 3}">
+                                                        選手親族
                                                     </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 4}">
-                                                        外野手
+                                                    <c:when test="${now_status.not_players.posision1 == 4}">
+                                                        審判
                                                     </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 5}">
-                                                        監督
+                                                    <c:when test="${now_status.not_players.posision1 == 5}">
+                                                        コミッショナー
                                                     </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 6}">
-                                                        ヘッドコーチ
+                                                    <c:when test="${now_status.not_players.posision1 == 6}">
+                                                        その他球界関係者
                                                     </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 7}">
-                                                        投手コーチ
+                                                    <c:when test="${now_status.not_players.posision1 == 7}">
+                                                        その他一般人
                                                     </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 8}">
-                                                        打撃コーチ
-                                                    </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 9}">
-                                                        走塁コーチ
-                                                    </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 10}">
-                                                        バッテリーコーチ
-                                                    </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 11}">
-                                                        内野守備コーチ
-                                                    </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 12}">
-                                                        外野守備コーチ
-                                                    </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 13}">
-                                                        トレーナー
-                                                    </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 14}">
-                                                        打撃投手
-                                                    </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 15}">
-                                                        チームドクター
-                                                    </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 16}">
-                                                        通訳
-                                                    </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 17}">
-                                                        オーナー
-                                                    </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 18}">
-                                                        球団幹部
-                                                    </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 19}">
-                                                        マスコット
-                                                    </c:when>
-                                                    <c:when test="${characters.now_status.players.posision1 == 20}">
-                                                        その他球団職員
-                                                    </c:when>
-                                                </c:choose>
-                                            </a>
-                                        </c:when>
-                                        <c:when test="${characters.now_status.chara_flag == 1}">
-                                            <a href="<c:url value='/now_status/show?id=${characters.now_status.not_players.posision1}' />">
-                                                <c:when test="${characters.now_status.not_players.posision1 == 0}">
-                                                    未分類
-                                                </c:when>
-                                                <c:when test="${characters.now_status.not_players.posision1 == 1}">
-                                                    OB・OG
-                                                </c:when>
-                                                <c:when test="${characters.now_status.not_players.posision1 == 2}">
-                                                    ファン
-                                                </c:when>
-                                                <c:when test="${characters.now_status.not_players.posision1 == 3}">
-                                                    選手親族
-                                                </c:when>
-                                                <c:when test="${characters.now_status.not_players.posision1 == 4}">
-                                                    審判
-                                                </c:when>
-                                                <c:when test="${characters.now_status.not_players.posision1 == 5}">
-                                                    コミッショナー
-                                                </c:when>
-                                                <c:when test="${characters.now_status.not_players.posision1 == 6}">
-                                                    その他球界関係者
-                                                </c:when>
-                                                <c:when test="${characters.now_status.not_players.posision1 == 7}">
-                                                    その他一般人
-                                                </c:when>
-                                            </a>
-                                        </c:when>
-                                    </c:choose>
-                                </td>
+                                                </a>
+                                            </c:when>
+                                        </c:choose>
+                                    </td>
+                                </tr>
                             </c:forEach>
                         </tbody>
                     </table>
