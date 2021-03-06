@@ -1,6 +1,7 @@
 package controllers.characters;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -45,38 +46,38 @@ public class CharactersIndexServlet extends HttpServlet {
             page = Integer.parseInt(request.getParameter("page"));
         } catch(NumberFormatException e) { }
 
-        List<Character_list> characters = em.createNamedQuery("getMyAllCharacters", Character_list.class)
-                                .setParameter("titles", t)
-                                .setFirstResult(15 * (page - 1))
-                                .setMaxResults(15)
-                                .getResultList();
+        List<Character_list> characters = new ArrayList<Character_list>();
+        long characters_count = 0;
 
-        long characters_count = (long)em.createNamedQuery("getMyCharactersCount", Long.class)
-                                      .setParameter("titles", t)
-                                      .getSingleResult();
+        try {
+            if(login_user.getUser_id() == t.getUsers().getUser_id()) {
+                characters = em.createNamedQuery("getMyAllCharacters", Character_list.class)
+                        .setParameter("titles", t)
+                        .setFirstResult(15 * (page - 1))
+                        .setMaxResults(15)
+                        .getResultList();
 
-        List<Character_list> characters_read = em.createNamedQuery("getMyAllCharactersForReaders", Character_list.class)
-                .setParameter("titles", t)
-                .setFirstResult(15 * (page - 1))
-                .setMaxResults(15)
-                .getResultList();
+                characters_count = (long)em.createNamedQuery("getMyCharactersCount", Long.class)
+                                            .setParameter("titles", t)
+                                            .getSingleResult();
+            }
+        } catch(Exception e) {
+                characters = em.createNamedQuery("getMyAllCharactersForReaders", Character_list.class)
+                        .setParameter("titles", t)
+                        .setFirstResult(15 * (page - 1))
+                        .setMaxResults(15)
+                        .getResultList();
 
-        long characters_count_read = (long)em.createNamedQuery("getMyCharactersCountForReaders", Long.class)
-                      .setParameter("titles", t)
-                      .getSingleResult();
+                characters_count = (long)em.createNamedQuery("getMyCharactersCountForReaders", Long.class)
+                                            .setParameter("titles", t)
+                                            .getSingleResult();
+        }
 
         em.close();
 
         request.setAttribute("page", page);
-        request.setAttribute("characters", characters_read);
-        request.setAttribute("characters_count", characters_count_read);
-        try{
-            if(login_user.getUser_id() == t.getUsers().getUser_id()) {
-                request.setAttribute("characters", characters);
-                request.setAttribute("characters_count", characters_count);
-            }
-        } catch(Exception e) { }
-
+        request.setAttribute("characters", characters);
+        request.setAttribute("characters_count", characters_count);
         request.setAttribute("titles", t);
         request.setAttribute("_token", request.getSession().getId());
 

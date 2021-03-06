@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(
         name = "getMyAllCharacters",
-        query = "SELECT c FROM Character_list AS c WHERE c.titles = :titles ORDER BY c.chara_id DESC"
+        query = "SELECT c FROM Character_list AS c WHERE c.titles = :titles ORDER BY c.chara_name_read"
     ),
     @NamedQuery(
         name = "getMyCharactersCount",
@@ -26,7 +26,7 @@ import javax.persistence.Table;
     ),
     @NamedQuery(
         name = "getMyAllCharactersForReaders",
-        query = "SELECT c FROM Character_list AS c WHERE c.titles = :titles and c.appearance_flag = 1 ORDER BY c.chara_id DESC"
+        query = "SELECT c FROM Character_list AS c WHERE c.titles = :titles and c.appearance_flag = 1 ORDER BY c.chara_name_read"
     ),
     @NamedQuery(
         name = "getMyCharactersCountForReaders",
