@@ -109,6 +109,8 @@
 </select>
 <br /><br />
 
+<c:if test="${status_count > 1}">
 <input type="hidden" name="_token" value="${_token}" />
 <button class="status_change" type="submit">詳細情報の年度を変更する</button>
 <br /><br />
+</c:if>

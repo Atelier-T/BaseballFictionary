@@ -12,13 +12,12 @@
 		<class>models.NowStatus</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/BaseBallFictionary?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8"/>
-			<property name="javax.persistence.jdbc.user" value="bbfuser"/>
-			<property name="javax.persistence.jdbc.password" value="e6xcw2"/>
-			<property name="javax.persistence.schema-generation.database.action" value="create"/>
+			<property name="javax.persistence.jdbc.user" value="b72247e5ded1f7"/>
+			<property name="javax.persistence.jdbc.password" value="1be0ab5c"/>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.format_sql" value="true"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://us-cdbr-east-03.cleardb.com/heroku_0f242381b8f2e47?reconnect=true&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8&amp;characterSetResults=utf8"/>
 		</properties>
 	</persistence-unit>
 </persistence>

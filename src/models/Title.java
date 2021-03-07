@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(
         name = "getAllTitles",
-        query = "SELECT t FROM Title AS t ORDER BY t.title_id DESC"
+        query = "SELECT t FROM Title AS t ORDER BY t.title_name"
     ),
     @NamedQuery(
         name = "getTitlesCount",
@@ -26,7 +26,7 @@ import javax.persistence.Table;
     ),
     @NamedQuery(
         name = "getMyAllTitles",
-        query = "SELECT t FROM Title AS t WHERE t.users = :users ORDER BY t.title_id DESC"
+        query = "SELECT t FROM Title AS t WHERE t.users = :users ORDER BY t.title_name"
     ),
     @NamedQuery(
         name = "getMyTitlesCount",
