@@ -15,7 +15,7 @@
         </c:choose>
 
         <p><a href="<c:url value="/leagues/index?id=${leagues.titles.title_id}" />">一覧に戻る</a></p>
-        <p><a href="#" onclick="confirmDestroy();">この作品を削除する</a></p>
+        <p><a href="#" onclick="confirmDestroy();">この球団情報を削除する</a></p>
         <form method="POST" action="${pageContext.request.contextPath}/leagues/destroy">
             <input type="hidden" name="_token" value="${_token}" />
         </form>
