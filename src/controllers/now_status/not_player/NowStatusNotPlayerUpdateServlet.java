@@ -145,7 +145,7 @@ public class NowStatusNotPlayerUpdateServlet extends HttpServlet {
 
                 request.getSession().setAttribute("flush", "更新が完了しました。");
 
-                request.getSession().removeAttribute("now_id");
+                request.getSession().removeAttribute("before_id");
 
                 response.sendRedirect(request.getContextPath() + "/characters/index?id=" + c.getTitles().getTitle_id());
             }
