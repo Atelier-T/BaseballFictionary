@@ -40,6 +40,7 @@ import javax.persistence.Table;
         name = "getCharactersNowStatusCount",
         query = "SELECT COUNT(n) FROM NowStatus AS n WHERE n.characters = :characters"
     ),
+    //validation用
     @NamedQuery(
         name = "checkNow_year",
         query = "SELECT COUNT(n) FROM NowStatus AS n WHERE n.characters = :characters and n.now_year = :now_year"
