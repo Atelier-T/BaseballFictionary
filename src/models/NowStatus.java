@@ -34,7 +34,7 @@ import javax.persistence.Table;
     ),
     @NamedQuery(
         name = "getCharactersAllNowStatus",
-        query = "SELECT n FROM NowStatus AS n WHERE n.characters = :characters ORDER BY n.now_id DESC"
+        query = "SELECT n FROM NowStatus AS n WHERE n.characters = :characters ORDER BY n.now_year DESC"
     ),
     @NamedQuery(
         name = "getCharactersNowStatusCount",

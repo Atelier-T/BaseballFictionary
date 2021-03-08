@@ -39,9 +39,11 @@
                                             </c:when>
                                             <c:when test="${characters.now_status != null}">
                                                 <a href="<c:url value='/status/show?id=${characters.now_status.now_id}' />">
-                                                    <c:out value="${characters.now_status.now_year}" />年度 (
+                                                    <c:out value="${characters.now_status.now_year}" />年度
                                                     <c:if test="${characters.birth_year != null && characters.titles.elapsed_year != null && characters.birth_year != null}">
-                                                        <c:out value="${characters.titles.year + characters.titles.elapsed_year - characters.birth_year}" />歳時、(
+                                                        (
+                                                        <c:out value="${characters.titles.year + characters.titles.elapsed_year - characters.birth_year}" />
+                                                        歳時、(
                                                         <c:choose>
                                                             <c:when test="${characters.now_status.chara_flag == 0}">
                                                                 <c:choose>
@@ -112,28 +114,28 @@
                                                             </c:when>
                                                             <c:when test="${characters.now_status.chara_flag == 1}">
                                                                 <c:choose>
-                                                                    <c:when test="${characters.now_status.not_players.posision1 == 0}">
+                                                                    <c:when test="${characters.now_status.not_players.chara_type1 == 0}">
                                                                         未分類
                                                                     </c:when>
-                                                                    <c:when test="${characters.now_status.not_players.posision1 == 1}">
+                                                                    <c:when test="${characters.now_status.not_players.chara_type1 == 1}">
                                                                         OB・OG
                                                                     </c:when>
-                                                                    <c:when test="${characters.now_status.not_players.posision1 == 2}">
+                                                                    <c:when test="${characters.now_status.not_players.chara_type1 == 2}">
                                                                         ファン
                                                                     </c:when>
-                                                                    <c:when test="${characters.now_status.not_players.posision1 == 3}">
+                                                                    <c:when test="${characters.now_status.not_players.chara_type1 == 3}">
                                                                         選手親族
                                                                     </c:when>
-                                                                    <c:when test="${characters.now_status.not_players.posision1 == 4}">
+                                                                    <c:when test="${characters.now_status.not_players.chara_type1 == 4}">
                                                                         審判
                                                                     </c:when>
-                                                                    <c:when test="${characters.now_status.not_players.posision1 == 5}">
+                                                                    <c:when test="${characters.now_status.not_players.chara_type1 == 5}">
                                                                         コミッショナー
                                                                     </c:when>
-                                                                    <c:when test="${characters.now_status.not_players.posision1 == 6}">
+                                                                    <c:when test="${characters.now_status.not_players.chara_type1 == 6}">
                                                                         その他球界関係者
                                                                     </c:when>
-                                                                    <c:when test="${characters.now_status.not_players.posision1 == 7}">
+                                                                    <c:when test="${characters.now_status.not_players.chara_type1 == 7}">
                                                                         その他一般人
                                                                     </c:when>
                                                                 </c:choose>

@@ -77,7 +77,7 @@ public class NowStatusNotPlayerCreateServlet extends HttpServlet {
             np.setChara_type2(Integer.parseInt(request.getParameter("chara_type2")));
             np.setChara_type3(Integer.parseInt(request.getParameter("chara_type3")));
 
-            np.setChara_type_detail(request.getParameter("Chara_type_detail"));
+            np.setChara_type_detail(request.getParameter("chara_type_detail"));
 
             np.setNot_player_information(request.getParameter("not_player_information"));
 

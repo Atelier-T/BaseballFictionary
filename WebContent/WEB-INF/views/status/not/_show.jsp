@@ -117,7 +117,7 @@
 
         <tr>
             <th>その他補足情報</th>
-            <td><a href="<c:url value='/status/show?id=${now_status.now_id}' />"><c:out value="${now_status.not_players.chara_type_detail}" /></a></td>
+            <td><a href="<c:url value='/status/show?id=${now_status.now_id}' />"><c:out value="${now_status.not_players.not_player_information}" /></a></td>
         </tr>
 
         <tr>

@@ -23,15 +23,15 @@
                         </c:if>
 
                         <c:choose>
-                            <c:when test="${now_status.characters.now_status.chara_flag == 0}">
+                            <c:when test="${now_status.chara_flag == 0}">
 
                                 <c:import url='player/_show.jsp' />
 
                             </c:when>
 
-                            <c:when test="${now_status.characters.now_status.chara_flag == 1}">
+                            <c:when test="${now_status.chara_flag == 1}">
 
-                                <c:import url='not_player/_show.jsp' />
+                                <c:import url='not/_show.jsp'/>
 
                             </c:when>
                         </c:choose>
@@ -50,6 +50,6 @@
 
         </c:choose>
 
-        <p><a href="<c:url value="/characters/index?id=${now_status.characters.titles.title_id}" />">一覧に戻る</a></p>
+        <p><a href="<c:url value="/characters/show?id=${now_status.characters.chara_id}" />">人物詳細に戻る</a></p>
     </c:param>
 </c:import>
