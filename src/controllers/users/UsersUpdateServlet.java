@@ -2,8 +2,10 @@ package controllers.users;
 
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.User;
+import models.validators.UserValidator;
 import utils.DBUtil;
+import utils.EncryptUtil;
 
 /**
  * Servlet implementation class UsersUpdateServlet
@@ -37,22 +41,51 @@ public class UsersUpdateServlet extends HttpServlet {
 
             User u = em.find(User.class, (Integer)(request.getSession().getAttribute("user_id")));
 
-            u.setUser_name(request.getParameter("user_name"));
-            u.setUser_flag(Integer.parseInt(request.getParameter("admin_flag")));
-            u.setUser_flag(Integer.parseInt(request.getParameter("password")));
+
+            Boolean nameCheckFlag = true;
+            if(u.getUser_name().equals(request.getParameter("user_name"))) {
+                nameCheckFlag = false;
+            } else {
+                u.setUser_name(request.getParameter("user_name"));
+            }
+
+            Boolean passwordCheckFlag = true;
+            String password = request.getParameter("password");
+            if(password == null || password.equals("")) {
+                passwordCheckFlag = false;
+            } else {
+                u.setPassword(
+                        EncryptUtil.getPasswordEncrypt(
+                                password,
+                                (String)this.getServletContext().getAttribute("pepper")
+                                )
+                        );
+            }
+
+            u.setUser_flag(Integer.parseInt(request.getParameter("user_flag")));
             u.setUpdated_at(new Timestamp(System.currentTimeMillis()));
             u.setDelete_flag(0);
 
-            em.getTransaction().begin();
-            em.getTransaction().commit();
-            em.close();
+            List<String> errors = UserValidator.validate(u, nameCheckFlag, passwordCheckFlag);
+            if(errors.size() > 0) {
+                em.close();
 
-            request.getSession().setAttribute("flush", "更新が完了しました。");
+                request.setAttribute("_token", request.getSession().getId());
+                request.setAttribute("users", u);
+                request.setAttribute("errors", errors);
 
-            request.getSession().removeAttribute("User_id");
+                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/users/edit.jsp");
+                rd.forward(request, response);
+            } else {
+                em.getTransaction().begin();
+                em.getTransaction().commit();
+                request.getSession().setAttribute("flush", "更新が完了しました。");
+                em.close();
 
-            response.sendRedirect(request.getContextPath() + "/users/index");
+                request.getSession().removeAttribute("User_id");
+
+                response.sendRedirect(request.getContextPath() + "/users/index");
+            }
         }
     }
-
 }

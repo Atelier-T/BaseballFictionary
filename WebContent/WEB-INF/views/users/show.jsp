@@ -9,7 +9,7 @@
 
                 <table>
                     <tbody>
-                        <c:if test="${sessionScope.login_user.user_id == users.user_id}">
+                        <c:if test="${sessionScope.login_user.user_id == users.user_id || sessionScope.login_user.user_flag == 0}">
                             <tr>
                                 <th>ユーザID</th>
                                 <td><c:out value="${users.user_id}" /></td>
@@ -19,7 +19,7 @@
                             <th>ユーザ名</th>
                             <td><a href="<c:url value='/users/show?id=${users.user_id}' />"><c:out value="${users.user_name}" /></a></td>
                         </tr>
-                        <c:if test="${sessionScope.login_user.user_id == users.user_id}">
+                        <c:if test="${sessionScope.login_user.user_id == users.user_id || sessionScope.login_user.user_flag == 0}">
                             <tr>
                                 <th>ユーザタイプ</th>
                                 <td>
