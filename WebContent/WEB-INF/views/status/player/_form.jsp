@@ -19,33 +19,136 @@
 <br /><br />
 
 <label for="posision">※「ポジション・役職」はメインを「1」に入れるようにして下さい。</label><br /><br />
-<c:forEach var="i" begin="1" end="5" varStatus="status">
-    <label for="posision${i}">ポジション・役職${i}</label><br />
-        <select name="posision${i}">
-        <option value="0"<c:if test="players.posision${i} == 0"> selected</c:if>>未分類</option>
-        <option value="1"<c:if test="players.posision${i} == 1"> selected</c:if>>投手</option>
-        <option value="2"<c:if test="players.posision${i} == 2"> selected</c:if>>捕手</option>
-        <option value="3"<c:if test="players.posision${i} == 3"> selected</c:if>>内野手</option>
-        <option value="4"<c:if test="players.posision${i} == 4"> selected</c:if>>外野手</option>
-        <option value="5"<c:if test="players.posision${i} == 5"> selected</c:if>>監督</option>
-        <option value="6"<c:if test="players.posision${i} == 6"> selected</c:if>>ヘッドコーチ</option>
-        <option value="7"<c:if test="players.posision${i} == 7"> selected</c:if>>投手コーチ</option>
-        <option value="8"<c:if test="players.posision${i} == 8"> selected</c:if>>打撃コーチ</option>
-        <option value="9"<c:if test="players.posision${i} == 9"> selected</c:if>>走塁コーチ</option>
-        <option value="10"<c:if test="players.posision${i} == 10"> selected</c:if>>バッテリーコーチ</option>
-        <option value="11"<c:if test="players.posision${i} == 11"> selected</c:if>>内野守備コーチ</option>
-        <option value="12"<c:if test="players.posision${i} == 12"> selected</c:if>>外野守備コーチ</option>
-        <option value="13"<c:if test="players.posision${i} == 13"> selected</c:if>>トレーナー</option>
-        <option value="14"<c:if test="players.posision${i} == 14"> selected</c:if>>打撃投手</option>
-        <option value="15"<c:if test="players.posision${i} == 15"> selected</c:if>>チームドクター</option>
-        <option value="16"<c:if test="players.posision${i} == 16"> selected</c:if>>通訳</option>
-        <option value="17"<c:if test="players.posision${i} == 17"> selected</c:if>>オーナー</option>
-        <option value="18"<c:if test="players.posision${i} == 18"> selected</c:if>>球団幹部</option>
-        <option value="19"<c:if test="players.posision${i} == 19"> selected</c:if>>マスコット</option>
-        <option value="20"<c:if test="players.posision${i} == 20"> selected</c:if>>その他球団職員</option>
+
+    <label for="posision1">ポジション・役職1</label><br />
+        <select name="posision1">
+        <option value="0"<c:if test="${players.posision1 == 0}"> selected</c:if>>未分類</option>
+        <option value="1"<c:if test="${players.posision1 == 1}"> selected</c:if>>投手</option>
+        <option value="2"<c:if test="${players.posision1 == 2}"> selected</c:if>>捕手</option>
+        <option value="3"<c:if test="${players.posision1 == 3}"> selected</c:if>>内野手</option>
+        <option value="4"<c:if test="${players.posision1 == 4}"> selected</c:if>>外野手</option>
+        <option value="5"<c:if test="${players.posision1 == 5}"> selected</c:if>>監督</option>
+        <option value="6"<c:if test="${players.posision1 == 6}"> selected</c:if>>ヘッドコーチ</option>
+        <option value="7"<c:if test="${players.posision1 == 7}"> selected</c:if>>投手コーチ</option>
+        <option value="8"<c:if test="${players.posision1 == 8}"> selected</c:if>>打撃コーチ</option>
+        <option value="9"<c:if test="${players.posision1 == 9}"> selected</c:if>>走塁コーチ</option>
+        <option value="10"<c:if test="${players.posision1 == 10}"> selected</c:if>>バッテリーコーチ</option>
+        <option value="11"<c:if test="${players.posision1 == 11}"> selected</c:if>>内野守備コーチ</option>
+        <option value="12"<c:if test="${players.posision1 == 12}"> selected</c:if>>外野守備コーチ</option>
+        <option value="13"<c:if test="${players.posision1 == 13}"> selected</c:if>>トレーナー</option>
+        <option value="14"<c:if test="${players.posision1 == 14}"> selected</c:if>>打撃投手</option>
+        <option value="15"<c:if test="${players.posision1 == 15}"> selected</c:if>>チームドクター</option>
+        <option value="16"<c:if test="${players.posision1 == 16}"> selected</c:if>>通訳</option>
+        <option value="17"<c:if test="${players.posision1 == 17}"> selected</c:if>>オーナー</option>
+        <option value="18"<c:if test="${players.posision1 == 18}"> selected</c:if>>球団幹部</option>
+        <option value="19"<c:if test="${players.posision1 == 19}"> selected</c:if>>マスコット</option>
+        <option value="20"<c:if test="${players.posision1 == 20}"> selected</c:if>>その他球団職員</option>
         </select>
         <br /><br />
-</c:forEach>
+
+    <label for="posision2">ポジション・役職1</label><br />
+        <select name="posision2">
+        <option value="0"<c:if test="${players.posision2 == 0}"> selected</c:if>>未分類</option>
+        <option value="1"<c:if test="${players.posision2 == 1}"> selected</c:if>>投手</option>
+        <option value="2"<c:if test="${players.posision2 == 2}"> selected</c:if>>捕手</option>
+        <option value="3"<c:if test="${players.posision2 == 3}"> selected</c:if>>内野手</option>
+        <option value="4"<c:if test="${players.posision2 == 4}"> selected</c:if>>外野手</option>
+        <option value="5"<c:if test="${players.posision2 == 5}"> selected</c:if>>監督</option>
+        <option value="6"<c:if test="${players.posision2 == 6}"> selected</c:if>>ヘッドコーチ</option>
+        <option value="7"<c:if test="${players.posision2 == 7}"> selected</c:if>>投手コーチ</option>
+        <option value="8"<c:if test="${players.posision2 == 8}"> selected</c:if>>打撃コーチ</option>
+        <option value="9"<c:if test="${players.posision2 == 9}"> selected</c:if>>走塁コーチ</option>
+        <option value="10"<c:if test="${players.posision2 == 10}"> selected</c:if>>バッテリーコーチ</option>
+        <option value="11"<c:if test="${players.posision2 == 11}"> selected</c:if>>内野守備コーチ</option>
+        <option value="12"<c:if test="${players.posision2 == 12}"> selected</c:if>>外野守備コーチ</option>
+        <option value="13"<c:if test="${players.posision2 == 13}"> selected</c:if>>トレーナー</option>
+        <option value="14"<c:if test="${players.posision2 == 14}"> selected</c:if>>打撃投手</option>
+        <option value="15"<c:if test="${players.posision2 == 15}"> selected</c:if>>チームドクター</option>
+        <option value="16"<c:if test="${players.posision2 == 16}"> selected</c:if>>通訳</option>
+        <option value="17"<c:if test="${players.posision2 == 17}"> selected</c:if>>オーナー</option>
+        <option value="18"<c:if test="${players.posision2 == 18}"> selected</c:if>>球団幹部</option>
+        <option value="19"<c:if test="${players.posision2 == 19}"> selected</c:if>>マスコット</option>
+        <option value="20"<c:if test="${players.posision2 == 20}"> selected</c:if>>その他球団職員</option>
+        </select>
+        <br /><br />
+
+    <label for="posision3">ポジション・役職1</label><br />
+        <select name="posision3">
+        <option value="0"<c:if test="${players.posision3 == 0}"> selected</c:if>>未分類</option>
+        <option value="1"<c:if test="${players.posision3 == 1}"> selected</c:if>>投手</option>
+        <option value="2"<c:if test="${players.posision3 == 2}"> selected</c:if>>捕手</option>
+        <option value="3"<c:if test="${players.posision3 == 3}"> selected</c:if>>内野手</option>
+        <option value="4"<c:if test="${players.posision3 == 4}"> selected</c:if>>外野手</option>
+        <option value="5"<c:if test="${players.posision3 == 5}"> selected</c:if>>監督</option>
+        <option value="6"<c:if test="${players.posision3 == 6}"> selected</c:if>>ヘッドコーチ</option>
+        <option value="7"<c:if test="${players.posision3 == 7}"> selected</c:if>>投手コーチ</option>
+        <option value="8"<c:if test="${players.posision3 == 8}"> selected</c:if>>打撃コーチ</option>
+        <option value="9"<c:if test="${players.posision3 == 9}"> selected</c:if>>走塁コーチ</option>
+        <option value="10"<c:if test="${players.posision3 == 10}"> selected</c:if>>バッテリーコーチ</option>
+        <option value="11"<c:if test="${players.posision3 == 11}"> selected</c:if>>内野守備コーチ</option>
+        <option value="12"<c:if test="${players.posision3 == 12}"> selected</c:if>>外野守備コーチ</option>
+        <option value="13"<c:if test="${players.posision3 == 13}"> selected</c:if>>トレーナー</option>
+        <option value="14"<c:if test="${players.posision3 == 14}"> selected</c:if>>打撃投手</option>
+        <option value="15"<c:if test="${players.posision3 == 15}"> selected</c:if>>チームドクター</option>
+        <option value="16"<c:if test="${players.posision3 == 16}"> selected</c:if>>通訳</option>
+        <option value="17"<c:if test="${players.posision3 == 17}"> selected</c:if>>オーナー</option>
+        <option value="18"<c:if test="${players.posision3 == 18}"> selected</c:if>>球団幹部</option>
+        <option value="19"<c:if test="${players.posision3 == 19}"> selected</c:if>>マスコット</option>
+        <option value="20"<c:if test="${players.posision3 == 20}"> selected</c:if>>その他球団職員</option>
+        </select>
+        <br /><br />
+
+    <label for="posision4">ポジション・役職1</label><br />
+        <select name="posision4">
+        <option value="0"<c:if test="${players.posision4 == 0}"> selected</c:if>>未分類</option>
+        <option value="1"<c:if test="${players.posision4 == 1}"> selected</c:if>>投手</option>
+        <option value="2"<c:if test="${players.posision4 == 2}"> selected</c:if>>捕手</option>
+        <option value="3"<c:if test="${players.posision4 == 3}"> selected</c:if>>内野手</option>
+        <option value="4"<c:if test="${players.posision4 == 4}"> selected</c:if>>外野手</option>
+        <option value="5"<c:if test="${players.posision4 == 5}"> selected</c:if>>監督</option>
+        <option value="6"<c:if test="${players.posision4 == 6}"> selected</c:if>>ヘッドコーチ</option>
+        <option value="7"<c:if test="${players.posision4 == 7}"> selected</c:if>>投手コーチ</option>
+        <option value="8"<c:if test="${players.posision4 == 8}"> selected</c:if>>打撃コーチ</option>
+        <option value="9"<c:if test="${players.posision4 == 9}"> selected</c:if>>走塁コーチ</option>
+        <option value="10"<c:if test="${players.posision4 == 10}"> selected</c:if>>バッテリーコーチ</option>
+        <option value="11"<c:if test="${players.posision4 == 11}"> selected</c:if>>内野守備コーチ</option>
+        <option value="12"<c:if test="${players.posision4 == 12}"> selected</c:if>>外野守備コーチ</option>
+        <option value="13"<c:if test="${players.posision4 == 13}"> selected</c:if>>トレーナー</option>
+        <option value="14"<c:if test="${players.posision4 == 14}"> selected</c:if>>打撃投手</option>
+        <option value="15"<c:if test="${players.posision4 == 15}"> selected</c:if>>チームドクター</option>
+        <option value="16"<c:if test="${players.posision4 == 16}"> selected</c:if>>通訳</option>
+        <option value="17"<c:if test="${players.posision4 == 17}"> selected</c:if>>オーナー</option>
+        <option value="18"<c:if test="${players.posision4 == 18}"> selected</c:if>>球団幹部</option>
+        <option value="19"<c:if test="${players.posision4 == 19}"> selected</c:if>>マスコット</option>
+        <option value="20"<c:if test="${players.posision4 == 20}"> selected</c:if>>その他球団職員</option>
+        </select>
+        <br /><br />
+
+    <label for="posision5">ポジション・役職1</label><br />
+        <select name="posision5">
+        <option value="0"<c:if test="${players.posision5 == 0}"> selected</c:if>>未分類</option>
+        <option value="1"<c:if test="${players.posision5 == 1}"> selected</c:if>>投手</option>
+        <option value="2"<c:if test="${players.posision5 == 2}"> selected</c:if>>捕手</option>
+        <option value="3"<c:if test="${players.posision5 == 3}"> selected</c:if>>内野手</option>
+        <option value="4"<c:if test="${players.posision5 == 4}"> selected</c:if>>外野手</option>
+        <option value="5"<c:if test="${players.posision5 == 5}"> selected</c:if>>監督</option>
+        <option value="6"<c:if test="${players.posision5 == 6}"> selected</c:if>>ヘッドコーチ</option>
+        <option value="7"<c:if test="${players.posision5 == 7}"> selected</c:if>>投手コーチ</option>
+        <option value="8"<c:if test="${players.posision5 == 8}"> selected</c:if>>打撃コーチ</option>
+        <option value="9"<c:if test="${players.posision5 == 9}"> selected</c:if>>走塁コーチ</option>
+        <option value="10"<c:if test="${players.posision5 == 10}"> selected</c:if>>バッテリーコーチ</option>
+        <option value="11"<c:if test="${players.posision5 == 11}"> selected</c:if>>内野守備コーチ</option>
+        <option value="12"<c:if test="${players.posision5 == 12}"> selected</c:if>>外野守備コーチ</option>
+        <option value="13"<c:if test="${players.posision5 == 13}"> selected</c:if>>トレーナー</option>
+        <option value="14"<c:if test="${players.posision5 == 14}"> selected</c:if>>打撃投手</option>
+        <option value="15"<c:if test="${players.posision5 == 15}"> selected</c:if>>チームドクター</option>
+        <option value="16"<c:if test="${players.posision5 == 16}"> selected</c:if>>通訳</option>
+        <option value="17"<c:if test="${players.posision5 == 17}"> selected</c:if>>オーナー</option>
+        <option value="18"<c:if test="${players.posision5 == 18}"> selected</c:if>>球団幹部</option>
+        <option value="19"<c:if test="${players.posision5 == 19}"> selected</c:if>>マスコット</option>
+        <option value="20"<c:if test="${players.posision5 == 20}"> selected</c:if>>その他球団職員</option>
+        </select>
+        <br /><br />
 
 <label for="posision_detail">ポジション・役職　詳細</label><br />
 <textarea name="posision_detail" rows="10" cols="50">${players.posision_detail}</textarea>

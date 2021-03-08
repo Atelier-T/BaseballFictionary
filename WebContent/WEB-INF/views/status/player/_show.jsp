@@ -388,13 +388,13 @@
             <th>投</th>
             <td><a href="<c:url value='/status/show?id=${now_status.now_id}' />">
                 <c:choose>
-                    <c:when test="now_status.players.throwing == 0">
+                    <c:when test="${now_status.players.throwing == 0}">
                         右
                     </c:when>
-                    <c:when test="now_status.players.throwing == 1">
+                    <c:when test="${now_status.players.throwing == 1}">
                         左
                     </c:when>
-                    <c:when test="now_status.players.throwing == 2">
+                    <c:when test="${now_status.players.throwing == 2}">
                         両
                     </c:when>
                 </c:choose>
@@ -405,13 +405,13 @@
             <th>打</th>
             <td><a href="<c:url value='/status/show?id=${now_status.now_id}' />">
                 <c:choose>
-                    <c:when test="now_status.players.batting == 0">
+                    <c:when test="${now_status.players.batting == 0}">
                         右
                     </c:when>
-                    <c:when test="now_status.players.batting == 1">
+                    <c:when test="${now_status.players.batting == 1}">
                         左
                     </c:when>
-                    <c:when test="now_status.players.batting == 2">
+                    <c:when test="${now_status.players.batting == 2}">
                         両
                     </c:when>
                 </c:choose>
@@ -422,13 +422,13 @@
             <th>登録分類1</th>
             <td><a href="<c:url value='/status/show?id=${now_status.now_id}' />">
                 <c:choose>
-                    <c:when test="now_status.players.player_type1 == 0">
+                    <c:when test="${now_status.players.player_type1 == 0}">
                         日本人
                     </c:when>
-                    <c:when test="now_status.players.player_type1 == 1">
+                    <c:when test="${now_status.players.player_type1 == 1}">
                         外国人
                     </c:when>
-                    <c:when test="now_status.players.player_type1 == 2">
+                    <c:when test="${now_status.players.player_type1 == 2}">
                         その他
                     </c:when>
                 </c:choose>
@@ -439,13 +439,13 @@
             <th>登録分類2</th>
             <td><a href="<c:url value='/status/show?id=${now_status.now_id}' />">
                 <c:choose>
-                    <c:when test="now_status.players.player_type2 == 0">
+                    <c:when test="${now_status.players.player_type2 == 0}">
                         支配下
                     </c:when>
-                    <c:when test="now_status.players.player_type2 == 1">
+                    <c:when test="${now_status.players.player_type2 == 1}">
                         育成
                     </c:when>
-                    <c:when test="now_status.players.player_type2 == 2">
+                    <c:when test="${now_status.players.player_type2 == 2}">
                         その他
                     </c:when>
                 </c:choose>

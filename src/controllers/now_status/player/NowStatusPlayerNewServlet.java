@@ -48,14 +48,23 @@ public class NowStatusPlayerNewServlet extends HttpServlet {
                 .setParameter("titles", t)
                 .getResultList();
 
+        NowStatus n = new NowStatus();
+        Player p = new Player();
+        //「この情報を元に詳細情報を新規作成」用
+        if(request.getSession().getAttribute("now_id") != null) {
+            n = em.find(NowStatus.class, (Integer)(request.getSession().getAttribute("now_id")));
+            p = n.getPlayers();
+        }
+
         em.close();
 
         request.setAttribute("characters", characters);
         request.setAttribute("teams", teams);
         request.setAttribute("titles", t);
         request.setAttribute("_token", request.getSession().getId());
-        request.setAttribute("now_status", new NowStatus());
-        request.setAttribute("players", new Player());
+
+        request.setAttribute("now_status", n);
+        request.setAttribute("players", p);
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/status/player/new.jsp");
         rd.forward(request, response);

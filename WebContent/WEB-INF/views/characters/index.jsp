@@ -20,7 +20,7 @@
                     <th class="chara_name">登場人物名</th>
                     <th class="player_name">登録名</th>
                     <th class="chara_team">所属球団</th>
-                    <th class="chara_type">人物分類</th>
+                    <th class="chara_type">詳細情報</th>
                     <th class="chara_action">操作</th>
                 </tr>
                 <c:forEach var="characters" items="${characters}" varStatus="status">
@@ -51,6 +51,8 @@
                             <c:choose>
                                 <c:when test="${characters.now_status.chara_flag == 0}">
                                     <a href="<c:url value='/status/show?id=${characters.now_status.now_id}' />">
+                                        <c:out value="${characters.now_status.now_year}" />
+                                        年度(
                                         <c:choose>
                                             <c:when test="${characters.now_status.players.posision1 == 0}">
                                                 未分類
@@ -116,34 +118,40 @@
                                                 その他球団職員
                                             </c:when>
                                         </c:choose>
+                                        )
                                     </a>
                                 </c:when>
                                 <c:when test="${characters.now_status.chara_flag == 1}">
                                     <a href="<c:url value='/now_status/show?id=${characters.now_status.not_players.posision1}' />">
-                                        <c:when test="${characters.now_status.not_players.posision1 == 0}">
-                                            未分類
-                                        </c:when>
-                                        <c:when test="${characters.now_status.not_players.posision1 == 1}">
-                                            OB・OG
-                                        </c:when>
-                                        <c:when test="${characters.now_status.not_players.posision1 == 2}">
-                                            ファン
-                                        </c:when>
-                                        <c:when test="${characters.now_status.not_players.posision1 == 3}">
-                                            選手親族
-                                        </c:when>
-                                        <c:when test="${characters.now_status.not_players.posision1 == 4}">
-                                            審判
-                                        </c:when>
-                                        <c:when test="${characters.now_status.not_players.posision1 == 5}">
-                                            コミッショナー
-                                        </c:when>
-                                        <c:when test="${characters.now_status.not_players.posision1 == 6}">
-                                            その他球界関係者
-                                        </c:when>
-                                        <c:when test="${characters.now_status.not_players.posision1 == 7}">
-                                            その他一般人
-                                        </c:when>
+                                        <c:out value="${characters.now_status.now_year}" />
+                                        年度(
+                                        <c:choose>
+                                            <c:when test="${characters.now_status.not_players.posision1 == 0}">
+                                                未分類
+                                            </c:when>
+                                            <c:when test="${characters.now_status.not_players.posision1 == 1}">
+                                                OB・OG
+                                            </c:when>
+                                            <c:when test="${characters.now_status.not_players.posision1 == 2}">
+                                                ファン
+                                            </c:when>
+                                            <c:when test="${characters.now_status.not_players.posision1 == 3}">
+                                                選手親族
+                                            </c:when>
+                                            <c:when test="${characters.now_status.not_players.posision1 == 4}">
+                                                審判
+                                            </c:when>
+                                            <c:when test="${characters.now_status.not_players.posision1 == 5}">
+                                                コミッショナー
+                                            </c:when>
+                                            <c:when test="${characters.now_status.not_players.posision1 == 6}">
+                                                その他球界関係者
+                                            </c:when>
+                                            <c:when test="${characters.now_status.not_players.posision1 == 7}">
+                                                その他一般人
+                                            </c:when>
+                                        </c:choose>
+                                        )
                                     </a>
                                 </c:when>
                             </c:choose>

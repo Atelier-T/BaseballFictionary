@@ -55,6 +55,7 @@ public class CharactersDestroyServlet extends HttpServlet {
                                     .setParameter("characters", c)
                                     .getResultList();
 
+            //リストに入った情報を1つずつ、型に合った変数に代入していき、データを削除していく。
             for(int i = 0; i < p.size(); i++){
                 _p = p.get(i);
                 em.getTransaction().begin();

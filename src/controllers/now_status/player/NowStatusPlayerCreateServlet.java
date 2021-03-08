@@ -155,6 +155,11 @@ public class NowStatusPlayerCreateServlet extends HttpServlet {
                 request.getSession().setAttribute("flush", "登録が完了しました。");
 
                 response.sendRedirect(request.getContextPath() + "/characters/show?id=" + c.getChara_id());
+
+                //「この情報を元に詳細情報を新規作成」用
+                if(request.getSession().getAttribute("now_id") != null) {
+                    request.getSession().removeAttribute("now_id");
+                }
             }
         }
     }

@@ -18,7 +18,8 @@
                         <h2><a href="<c:url value='/characters/show?id=${now_status.now_id}' />"><c:out value="${now_status.characters.chara_name}" /></a>の<a href="<c:url value='/status/year/show?id=${now_status.now_year}' />"><c:out value="${now_status.now_year}" />年度</a>　詳細情報</h2>
 
                         <c:if test="${sessionScope.login_user.user_id == now_status.characters.titles.users.user_id}">
-                            <p><a href="<c:url value="/status/edit?id=${now_status.now_id}" />">詳細情報を編集する</a></p>
+                            <p><a href="<c:url value="/status/new?id=${now_status.characters.titles.title_id}&n_id=${now_status.now_id}" />">この情報を元に詳細情報を新規作成</a></p>
+                            <p><a href="<c:url value="/status/edit?id=${now_status.now_id}" />">この詳細情報を編集する</a></p>
                         </c:if>
 
                         <c:choose>
