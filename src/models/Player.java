@@ -9,9 +9,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Table(name = "players")
+
+@NamedQueries({
+    @NamedQuery(
+        name = "getCharactersAllPlayers",
+        query = "SELECT p FROM Player AS p WHERE p.now_status.characters = :characters ORDER BY p.player_name_read"
+    )
+})
 
 @Entity
 public class Player {
