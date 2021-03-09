@@ -22,6 +22,18 @@
             </a></p>
         </div>
 
+        <p><a href="#" onclick="confirmDestroy();">この詳細情報を削除する</a></p>
+        <form method="POST" action="<c:url value='/status/destroy' />">
+            <input type="hidden" name="_token" value="${_token}" />
+        </form>
+        <script>
+        function confirmDestroy() {
+            if(confirm("本当に削除してよろしいですか？")) {
+                document.forms[0].submit();
+            }
+        }
+        </script>
+
         <p><a href="<c:url value="/characters/index?id=${now_status.characters.titles.title_id}" />">一覧に戻る</a></p>
 
     </c:param>

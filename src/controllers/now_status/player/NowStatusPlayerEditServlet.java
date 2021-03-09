@@ -65,7 +65,6 @@ public class NowStatusPlayerEditServlet extends HttpServlet {
             request.setAttribute("teams", teams);
             request.setAttribute("titles", t);
             request.setAttribute("_token", request.getSession().getId());
-            request.getSession().setAttribute("before_id", n.getCharacters().getChara_id());
         }
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/status/player/edit.jsp");

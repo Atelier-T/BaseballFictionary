@@ -58,7 +58,6 @@ public class NowStatusNotPlayerEditServlet extends HttpServlet {
             request.setAttribute("characters", characters);
             request.setAttribute("titles", t);
             request.setAttribute("_token", request.getSession().getId());
-            request.getSession().setAttribute("before_id", n.getCharacters().getChara_id());
         }
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/status/not/edit.jsp");

@@ -1,7 +1,6 @@
 package controllers.now_status;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.Character_list;
+import models.NotPlayer;
 import models.NowStatus;
 import models.Player;
 import utils.DBUtil;
@@ -38,49 +38,61 @@ public class NowStatusDestroyServlet extends HttpServlet {
         if(_token != null && _token.equals(request.getSession().getId())) {
             EntityManager em = DBUtil.createEntityManager();
 
-            // セッションスコープからメッセージのIDを取得して
-            // 該当のIDのメッセージ1件のみをデータベースから取得
-            Character_list c = em.find(Character_list.class, (Integer)(request.getSession().getAttribute("chara_id")));
+            //削除対象の詳細情報と、それに紐づく情報を抽出
+            Character_list c = em.find(Character_list.class, (Integer)(request.getSession().getAttribute("before_id")));
+            NowStatus n = c.getNow_status();
+            Player p = new Player();
+            NotPlayer np = new NotPlayer();
+            if (n.getPlayers() != null) {
+                p = n.getPlayers();
+            }
+            if (n.getNot_players() != null) {
+                np = n.getNot_players();
+            }
 
-            List<NowStatus> n = new ArrayList<NowStatus>();
-            List<Player> p = new ArrayList<Player>();
-            Player _p;
-            NowStatus _n;
+            //いったん登場人物から詳細情報を削除する
+            c.setNow_status(null);
 
-            n = em.createNamedQuery("getCharactersAllNowStatus", NowStatus.class)
-                                    .setParameter("characters", c)
-                                    .getResultList();
-
-            p = em.createNamedQuery("getCharactersAllPlayers", Player.class)
-                                    .setParameter("characters", c)
-                                    .getResultList();
-
-            //リストに入った情報を1つずつ、型に合った変数に代入していき、データを削除していく。
-            for(int i = 0; i < p.size(); i++){
-                _p = p.get(i);
+            //下位の情報から先に削除していく
+            if (np != null) {
                 em.getTransaction().begin();
-                em.remove(_p);
+                em.remove(np);       // データ削除
                 em.getTransaction().commit();
             }
 
-            for(int i = 0; i < n.size(); i++){
-                _n = n.get(i);
+            if (p != null) {
                 em.getTransaction().begin();
-                em.remove(_n);
+                em.remove(p);       // データ削除
                 em.getTransaction().commit();
             }
 
             em.getTransaction().begin();
-            em.remove(c);       // データ削除
+            em.remove(n);       // データ削除
             em.getTransaction().commit();
+
+            //空になった最新情報に自動で別の最新情報を入れる
+            List<NowStatus> latest_n = em.createNamedQuery("getCharactersAllNowStatus", NowStatus.class)
+                                            .setParameter("characters", c)
+                                            .getResultList();
+            if(latest_n.size() > 0) {
+                //いったん最新年度の詳細情報を入れる
+                c.setNow_status(latest_n.get(0));
+                //現在の作中年度と一致する詳細情報があればそちらを優先
+                for(int i = 0; i < latest_n.size(); i++) {
+                    if(latest_n.get(i).getNow_year() == c.getTitles().getYear() + c.getTitles().getElapsed_year()){
+                        c.setNow_status(latest_n.get(i));
+                    }
+                }
+                em.getTransaction().begin();
+                em.getTransaction().commit();
+            }
 
             em.close();
 
             // セッションスコープ上の不要になったデータを削除
-            request.getSession().removeAttribute("character_id");
+            request.getSession().removeAttribute("before_id");
 
-            // indexページへリダイレクト
-            response.sendRedirect(request.getContextPath() + "/characters/index?id=" + c.getTitles().getTitle_id());
+            response.sendRedirect(request.getContextPath() + "/characters/show?id=" + n.getCharacters().getChara_id());
         }
     }
 

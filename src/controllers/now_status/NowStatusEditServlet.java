@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.NowStatus;
+import models.User;
 import utils.DBUtil;
 
 /**
@@ -37,8 +38,13 @@ public class NowStatusEditServlet extends HttpServlet {
 
         em.close();
 
-        request.setAttribute("now_status", n);
-        request.setAttribute("_token", request.getSession().getId());
+        User login_user = (User)request.getSession().getAttribute("login_user");
+
+        if(n != null && login_user.getUser_id() == n.getCharacters().getTitles().getUsers().getUser_id()) {
+            request.setAttribute("now_status", n);
+            request.setAttribute("_token", request.getSession().getId());
+            request.getSession().setAttribute("before_id", n.getCharacters().getChara_id());
+        }
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/status/edit.jsp");
         rd.forward(request, response);
