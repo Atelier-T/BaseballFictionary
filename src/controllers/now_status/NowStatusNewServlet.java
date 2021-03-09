@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.Character_list;
 import models.NowStatus;
 import models.Title;
 import utils.DBUtil;
@@ -46,6 +47,12 @@ public class NowStatusNewServlet extends HttpServlet {
             n = em.find(NowStatus.class, Integer.parseInt(request.getParameter("n_id")));
         }
 
+        //「この人物の詳細情報を登録する」用
+        Character_list c = new Character_list();
+        if(request.getParameter("c_id") != null) {
+            c = em.find(Character_list.class, Integer.parseInt(request.getParameter("c_id")));
+        }
+
         em.close();
 
         request.setAttribute("titles", t);
@@ -54,6 +61,9 @@ public class NowStatusNewServlet extends HttpServlet {
 
         //「この情報を元に詳細情報を新規作成」用
         request.getSession().setAttribute("now_id", n.getNow_id());
+
+        //「この人物の詳細情報を登録する」用
+        request.getSession().setAttribute("c_id", c.getChara_id());
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/status/new.jsp");
         rd.forward(request, response);

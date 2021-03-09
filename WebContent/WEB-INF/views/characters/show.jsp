@@ -251,6 +251,7 @@
 
                         <c:if test="${sessionScope.login_user.user_id == characters.titles.users.user_id}">
                             <p><a href="<c:url value="/characters/edit?id=${characters.chara_id}" />">登場人物情報を編集する(最新の詳細情報のみ↓で)</a></p>
+                            <p><a href="<c:url value="/status/new?id=${characters.titles.title_id}&c_id=${characters.chara_id}" />">この人物の詳細情報を登録する</a></p>
 
                             <div id="status_change">
                                 <br />

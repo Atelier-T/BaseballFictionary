@@ -136,6 +136,11 @@ public class NowStatusNotPlayerCreateServlet extends HttpServlet {
                 if(request.getSession().getAttribute("now_id") != null) {
                     request.getSession().removeAttribute("now_id");
                 }
+
+                //「この人物の詳細情報を登録する」用
+                if(request.getSession().getAttribute("c_id") != null) {
+                    request.getSession().removeAttribute("c_id");
+                }
             }
         }
     }

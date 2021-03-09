@@ -45,6 +45,11 @@ public class NowStatusNotPlayerNewServlet extends HttpServlet {
 
         NowStatus n = new NowStatus();
         NotPlayer np = new NotPlayer();
+        //「この人物の詳細情報を登録する」用
+        if(request.getSession().getAttribute("c_id") != null) {
+            Character_list c = em.find(Character_list.class, (Integer)(request.getSession().getAttribute("c_id")));
+            n.setCharacters(c);
+        }
         //「この情報を元に詳細情報を新規作成」用
         if(request.getSession().getAttribute("now_id") != null) {
             n = em.find(NowStatus.class, (Integer)(request.getSession().getAttribute("now_id")));
