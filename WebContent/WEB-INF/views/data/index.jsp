@@ -7,7 +7,7 @@
                 <c:out value="${flush}"></c:out>
             </div>
         </c:if>
-        <h2><a href="<c:url value='/titles/show?id=${titles.title_id}' />">『${titles.title_name}』</a>の各種データ</h2>
+        <h2><a href="<c:url value='/titles/show?id=${titles.title_id}' />">『${titles.title_name}』</a>の各種データ・ツール</h2>
 
         <div id="important">
             <p><a href="<c:url value='/leagues/index?id=${titles.title_id}' />">リーグ情報</a></p>
@@ -22,6 +22,13 @@
             </c:choose>
             <p>用語集</p>
         </div>
+        <br /><br />
 
+        <c:if test="${sessionScope.login_user.user_id == titles.users.user_id}">
+            <h3>各種ツール</h3>
+            <p><a href="<c:url value='/data/tool1/index?id=${titles.title_id}' />">詳細情報一斉登録ツール</a></p>
+        </c:if>
+
+    <p><a href="<c:url value="/titles/index?id=${titles.title_id}" />">一覧に戻る</a></p>
     </c:param>
 </c:import>

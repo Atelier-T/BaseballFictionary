@@ -203,3 +203,24 @@ table#team_list .league_action {
 button.status_change {
     background-color: #ffffff;
 }
+
+details {
+    background-color: #ccccff;
+}
+
+label {
+    background-color: #ffffcc;
+}
+
+.check_box_form_a {
+    margin-left: 16px;
+}
+.check_box_form_b {
+    margin-left: 48px;
+}
+.check_box_form_c {
+    margin-left: 80px;
+}
+.check_box_form_d {
+    margin-left: 112px;
+}
