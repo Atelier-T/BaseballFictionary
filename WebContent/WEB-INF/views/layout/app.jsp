@@ -17,15 +17,15 @@
                         <a href="<c:url value='/users/index' />">ユーザ管理</a>&nbsp;
                     </c:if>
                     <a href="<c:url value='/titles/index' />">作品情報</a>&nbsp;
-                    <div id="user_name">
-                        <c:if test="${sessionScope.login_user != null}">
-                            <c:out value="${sessionScope.login_user.user_name}" />&nbsp;さん&nbsp;&nbsp;&nbsp;
-                            <a href="<c:url value='/logout' />">ログアウト</a>
-                        </c:if>
-                        <c:if test="${sessionScope.login_user == null}">
-                            <a href="<c:url value='/login' />">ログイン</a>
-                        </c:if>
-                    </div>
+                </div>
+                <div id="user_name">
+                    <c:if test="${sessionScope.login_user != null}">
+                        <c:out value="${sessionScope.login_user.user_name}" />&nbsp;さん&nbsp;&nbsp;&nbsp;
+                        <a href="<c:url value='/logout' />">ログアウト</a>
+                    </c:if>
+                    <c:if test="${sessionScope.login_user == null}">
+                        <a href="<c:url value='/login' />">ログイン</a>
+                    </c:if>
                 </div>
             </div>
             <div id="content">

@@ -44,6 +44,16 @@ import javax.persistence.Table;
     @NamedQuery(
         name = "checkNow_year",
         query = "SELECT COUNT(n) FROM NowStatus AS n WHERE n.characters = :characters and n.now_year = :now_year"
+    ),
+    //一斉作成用
+    @NamedQuery(
+        name = "getCharactersAndYearsNowStatus",
+        query = "SELECT n FROM NowStatus AS n WHERE n.characters = :characters and n.now_year = :now_year"
+    ),
+    //最新年度検出
+    @NamedQuery(
+        name = "getCharactersNowStatusLatestYear",
+        query = "SELECT n FROM NowStatus AS n WHERE n.characters = :characters ORDER BY n.now_year DESC"
     )
 })
 
@@ -144,5 +154,16 @@ public class NowStatus {
 
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
+    }
+
+    public NowStatus(){
+    }
+    public NowStatus(NowStatus source){
+        this.characters = source.getCharacters();
+        this.now_year = source.getNow_year();
+        this.chara_flag = source.getChara_flag();
+        this.players = source.getPlayers();
+        this.not_players = source.getNot_players();
+
     }
 }

@@ -143,4 +143,18 @@ public class NotPlayer {
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
     }
+
+    public NotPlayer(){
+    }
+
+    public NotPlayer(NotPlayer source){
+        this.now_status = source.getNow_status();
+        this.not_player_name = source.getNot_player_name();
+        this.not_player_name_read = source.getNot_player_name_read();
+        this.chara_type1 = source.getChara_type1();
+        this.chara_type2 = source.getChara_type2();
+        this.chara_type3 = source.getChara_type3();
+        this.chara_type_detail = source.getChara_type_detail();
+        this.not_player_information = source.getNot_player_information();
+    }
 }

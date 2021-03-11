@@ -19,7 +19,7 @@
                                         <c:forEach var="character" items="${characters}" varStatus="status">
                                             <c:if test="${character.now_status.chara_flag == 0}">
                                                 <c:if test="${character.now_status.players.teams.team_id == team.team_id}">
-                                                   <input type="checkbox" name="NG1" value="${character.chara_id}">
+                                                   <input type="checkbox" name="NG1_${status.index}" value="${character.chara_id}">
                                                        <c:out value="${character.chara_name}" /><br />
                                                 </c:if>
                                             </c:if>
@@ -40,7 +40,7 @@
         <div class="check_box_form_b">
             <c:forEach var="character" items="${characters}" varStatus="status">
                 <c:if test="${character.now_status.chara_flag == 1}">
-                    <input type="checkbox" name="NG2" value="${character.chara_id}">
+                    <input type="checkbox" name="NG2_${status.index}" value="${character.chara_id}">
                         <c:out value="${character.chara_name}" /><br />
                 </c:if>
             </c:forEach>

@@ -21,13 +21,13 @@
                 </c:otherwise>
             </c:choose>
             <p>用語集</p>
-        </div>
-        <br /><br />
+            <br /><br />
 
-        <c:if test="${sessionScope.login_user.user_id == titles.users.user_id}">
-            <h3>各種ツール</h3>
-            <p><a href="<c:url value='/data/tool1/index?id=${titles.title_id}' />">詳細情報一斉登録ツール</a></p>
-        </c:if>
+            <c:if test="${sessionScope.login_user.user_id == titles.users.user_id}">
+                <h3>各種ツール</h3>
+                <p><a href="<c:url value='/data/tool1/index?id=${titles.title_id}' />">詳細情報一斉登録ツール</a></p>
+            </c:if>
+        </div>
 
     <p><a href="<c:url value="/titles/index?id=${titles.title_id}" />">一覧に戻る</a></p>
     </c:param>

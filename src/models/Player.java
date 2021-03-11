@@ -299,4 +299,30 @@ public class Player {
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
     }
+
+    public Player(){
+    }
+
+    public Player(Player source){
+        this.now_status = source.getNow_status();
+        this.player_name = source.getPlayer_name();
+        this.player_name_read = source.getPlayer_name_read();
+        this.teams = source.getTeams();
+        this.posision1 = source.getPosision1();
+        this.posision2 = source.getPosision2();
+        this.posision3 = source.getPosision3();
+        this.posision4 = source.getPosision4();
+        this.posision5 = source.getPosision5();
+        this.posision_detail = source.getPosision_detail();
+        this.number = source.getNumber();
+        this.throwing = source.getThrowing();
+        this.batting = source.getBatting();
+        this.player_type1 = source.getPlayer_type1();
+        this.player_type2 = source.getPlayer_type2();
+        this.salary = source.getSalary();
+        this.music = source.getMusic();
+        this.player_information = source.getPlayer_information();
+        this.performance = source.getPerformance();
+        this.ather_player_information = source.getAther_player_information();
+    }
 }

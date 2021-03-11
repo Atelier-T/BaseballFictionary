@@ -37,6 +37,10 @@ p {
     margin-bottom: 15px;
 }
 
+p#setsumei {
+    background-color: #eeeeff;
+}
+
 a {
     text-decoration: none;
     color: #24738e;
@@ -113,7 +117,6 @@ select {
 }
 
 #header_menu {
-    width: 57%;
     padding-top: 17px;
     padding-left: 3%;
     display: inline-block;
@@ -121,8 +124,8 @@ select {
 
 #user_name {
     color: #cccccc;
-    width: 36%;
     padding-right: 3%;
+    padding-left: 12%;
     text-align: right;
     display: inline-block;
 }
@@ -141,16 +144,15 @@ table#title_list th {
 }
 
 table#title_list .title_name {
-    width: 20%;
-    padding: 10px 2%;
+    width: 25%;
 }
 
 table#title_list .user_name {
-    width: 35%;
+    width: 15%;
 }
 
 table#title_list .title_action {
-    width: 15%;
+    width: 20%;
 }
 
 pre {

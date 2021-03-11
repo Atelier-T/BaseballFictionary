@@ -58,6 +58,7 @@ public class Tool1IndexServlet extends HttpServlet {
         request.setAttribute("teams", teams);
         request.setAttribute("characters", characters);
         request.setAttribute("_token", request.getSession().getId());
+        request.getSession().setAttribute("title_id", t.getTitle_id());
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/data/tool1/index.jsp");
         rd.forward(request, response);
