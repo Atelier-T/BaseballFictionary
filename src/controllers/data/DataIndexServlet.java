@@ -40,6 +40,11 @@ public class DataIndexServlet extends HttpServlet {
         request.setAttribute("titles", t);
         request.setAttribute("_token", request.getSession().getId());
 
+        if(request.getSession().getAttribute("flush") != null) {
+            request.setAttribute("flush", request.getSession().getAttribute("flush"));
+            request.getSession().removeAttribute("flush");
+        }
+
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/data/index.jsp");
         rd.forward(request, response);
     }
