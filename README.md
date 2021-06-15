@@ -49,6 +49,8 @@
 
 * 詳細情報一斉登録ツールについて
 
+https://user-images.githubusercontent.com/76430170/121986218-18a11180-cdd1-11eb-8849-c6ce158685f4.mov
+
 ---
 
 ## 環境
